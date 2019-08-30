@@ -1,26 +1,24 @@
 import React from 'react';
 import logo from './logo.svg';
+import { Switch, Route } from "react-router-dom";
 import './App.css';
+import NavBar from "./components/NavBar";
+// import {GoogleMap} from 'react-google-maps';
+import simpleMap from './components/simpleMap'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <Switch>
+        {/* <Route exact path="/" component={Pages.Home} /> */}
+        {/* <Route exact path="/restroom/login" component={Pages.Login} /> */}
+        {/* <Route exact path="/daimon/signup" component={Pages.Signup} /> */}
+        {/* <Route exact path="/daimon/profile" component={Pages.Profile} /> */}
+      </Switch>
+      <simpleMap />
     </div>
   );
 }
 
-export default App;
+export default App
