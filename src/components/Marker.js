@@ -1,11 +1,11 @@
 import React from "react";
-import "./Marker.css";
+import "../Marker.css";
 
 const Marker = (props: any) => {
   const { color, name, id } = props;
   return (
     <div
-      className="marker"
+      className="pin bounce"
       style={{ backgroundColor: color, cursor: "pointer" }}
       title={name}
     />

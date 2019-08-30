@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 
-class Restroom extends Component {
+class Restroom extends React.Component {
 
     state ={
         show:false
@@ -16,4 +16,4 @@ class Restroom extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Restroom);
+export default Restroom;
