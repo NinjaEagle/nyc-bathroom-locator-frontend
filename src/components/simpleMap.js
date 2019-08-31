@@ -31,7 +31,7 @@ class simpleMap extends React.Component {
       }
 
     return (
-      <div style={{ height: "100vh", width: "100%" }}>
+      <div style={{ height: "100vh", width: "100vw" }}>
         {coordinates?
           <GoogleMapReact
             bootstrapURLKeys={{ key: "AIzaSyAvAtG2SuXIyUTJkabU2P0Y2AUQ1pW4WSE" }}

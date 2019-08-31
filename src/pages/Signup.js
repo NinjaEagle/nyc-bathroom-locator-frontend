@@ -15,7 +15,7 @@ class Signup extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    fetch(`http://localhost:3000/signup`, {
+    fetch(`http://localhost:3000/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,16 +25,26 @@ class Signup extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.token) {
-          localStorage.token = data.token;
-          this.props.updateUsername(data.user.username);
-          this.props.history.push("/profile");
+        if (!data.errors) {
+          localStorage.setItem("token", data.token);
+          localStorage.user_id = data.user_id;
+          this.props.history.push("/");
         }
       });
+    // if (data.token) {
+
+    //   localStorage.token = data.token;
+    //   this.props.updateUsername(data.user.username);
+    //   this.props.history.push("/");
+    // }
+  };
+
+  handleClick = () => {
+    this.props.history.push("/");
   };
 
   render() {
-    console.log(this.state)
+    console.log(this.state);
     return (
       <div className="form-container signup">
         <h1>Signup</h1>
@@ -59,11 +69,7 @@ class Signup extends Component {
           />
           <input className="form-btn signup" type="submit" value="Enter" />
         </form>
-        <a
-          className="anch signup"
-          href="./login"
-          onClick={this.handleClick}
-        >
+        <a className="anch signup" href="./login" onClick={this.handleClick}>
           Been Here Before?
         </a>
       </div>

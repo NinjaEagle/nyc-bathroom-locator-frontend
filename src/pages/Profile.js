@@ -9,6 +9,7 @@ class Profile extends Component {
     }
   }
   render() {
+    console.log(localStorage.token)
     return (
       <div className="welcome">
         {this.props.username ? `Welcome, ${this.props.username}!` : null}

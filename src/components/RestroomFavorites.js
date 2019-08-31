@@ -2,18 +2,15 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 
 class Restroom extends React.Component {
+  
+  render() {
+    
+    return (
+    <div>
 
-    state ={
-        show:false
-    }
-
-    render() {
-        return (
-            <div>
-            
-            </div>
-        );
-    }
+    </div>
+    )
+  }
 }
 
 export default Restroom;
