@@ -4,8 +4,9 @@ import {userPostFetch } from "../actions/userActions";
 
 class Signup extends Component {
   state = {
-    username: "",
-    password: ""
+    name:'',
+    username: '',
+    password: ''
   };
 
   handleChange = e => {
@@ -26,8 +27,10 @@ class Signup extends Component {
       .then(res => res.json())
       .then(data => {
         if (!data.errors) {
-          localStorage.setItem("token", data.token);
+          localStorage.token = data.token;
           localStorage.user_id = data.user_id;
+          console.log(data)
+          console.log(localStorage)
           this.props.history.push("/");
         }
       });
@@ -39,16 +42,24 @@ class Signup extends Component {
     // }
   };
 
-  handleClick = () => {
-    this.props.history.push("/");
-  };
+  handleLoginClick = () => {
+    this.props.history.push("/")
+  }
 
   render() {
-    console.log(this.state);
     return (
       <div className="form-container signup">
         <h1>Signup</h1>
         <form onSubmit={this.handleSubmit}>
+          <label htmlFor="name">
+            <b>Name</b>
+          </label>
+          <input
+            type="text"
+            value={this.state.name}
+            onChange={this.handleChange}
+            name="name"
+          />
           <label htmlFor="username">
             <b>Username</b>
           </label>
@@ -69,7 +80,7 @@ class Signup extends Component {
           />
           <input className="form-btn signup" type="submit" value="Enter" />
         </form>
-        <a className="anch signup" href="./login" onClick={this.handleClick}>
+        <a className="anch signup" href="./login" onClick={this.handleLoginClick}>
           Been Here Before?
         </a>
       </div>

@@ -3,8 +3,8 @@ import "../App.css";
 
 class LoginPage extends Component {
   state = {
-    username: "",
-    password: ""
+    username:'',
+    password:''
   };
 
   handleChange = e => {
@@ -13,9 +13,8 @@ class LoginPage extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    // console.log(this.state );
 
-    fetch(`http://localhost:3000/login`, {
+    fetch(`http://localhost:3000/tokens`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +26,9 @@ class LoginPage extends Component {
       .then(data => {
         if (data.token) {
           localStorage.token = data.token;
-          this.props.updateUsername(data.user.username);
+          localStorage.clickedUser = data.user_id
+          localStorage.user_id = data.user_id
+          // this.props.updateUsername(data.user.username);
           this.props.history.push('/profile');
         }
       });
@@ -38,6 +39,9 @@ class LoginPage extends Component {
   }
 
   render() {
+    if(localStorage.token) {
+      this.props.history.push("/home")
+    }
     return (
       <div>
         <form className="form-inline" onSubmit={this.handleSubmit}>

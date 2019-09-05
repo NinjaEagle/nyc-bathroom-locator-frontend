@@ -11,8 +11,13 @@ class App extends React.Component {
   state = {
     xcoordinate: 40.700771,
     ycoordinate: -73.987411,
-    allRestrooms: []
+    allRestrooms: [],
+    page: 'login'
   };
+
+  redirect = (page) => {
+    this.setState({page: page})
+  }
 
   componentDidMount() {
     fetch(`http://localhost:3000/restrooms`)
@@ -22,6 +27,9 @@ class App extends React.Component {
           allRestrooms: data
         });
       });
+    if (localStorage.token) {
+      this.redirect('profile')
+    }
   }
 
   render() {

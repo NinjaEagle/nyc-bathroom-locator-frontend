@@ -6,9 +6,10 @@ class Restroom extends React.Component {
   render() {
     
     return (
-    <div>
-
-    </div>
+      <div>
+        <h1>Your faves</h1>
+        
+      </div>
     )
   }
 }

@@ -11,7 +11,7 @@ export default class NavBar extends Component {
   }
 
   onLogout = () => {
-    this.props.logOut();
+    localStorage.clear()
     this.props.history.push("/login");
   };
 
@@ -25,9 +25,14 @@ export default class NavBar extends Component {
       color: "white"
     };
 
+    const navbar = {
+      background: "white",
+      
+    }
+ 
     return (
       <div>
-        <div className="navbar">
+        <div className="navbar" style={navbar}>
           <div className="buttons">
             <span className="title">NYC Restroom Finder</span>
             <NavLink to="/login" style={link}>
