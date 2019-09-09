@@ -12,7 +12,8 @@ class Home extends Component {
     filterTerm: "",
     hovered: null,
     sortTerm: "",
-    selectedMarker: ""
+    selectedMarker: "",
+    favoriteSpot: []
   };
 
   componentDidMount() {
@@ -34,15 +35,24 @@ class Home extends Component {
       sortTerm: term
     });
   };
-  showInfo = (selectedMarker) =>{
-    this.setState({selectedMarker: selectedMarker});
-    console.log(this.state.selectedMarker)
-  }
-  handleHover = restaurant => {
+  showInfo = selectedMarker => {
+    this.setState({ selectedMarker: selectedMarker });
+    console.log(this.state.selectedMarker);
+  };
+  handleHover = restroom => {
+    console.log(restroom);
     this.setState({
-      hovered: restaurant.name
+      hovered: restroom.name
     });
   };
+
+  // addFave = spot => {
+  //   this.setState(prevState => {
+  //     return {
+  //       favoriteSpot: [spot, ...prevState.favoriteSpot]
+  //     };
+  //   });
+  // };
 
   filterSpot = () => {
     let filteredRestrooms = [...this.state.allRestrooms];
@@ -53,27 +63,28 @@ class Home extends Component {
     // else{
     //   filteredRestrooms = filteredRestrooms.filter(restroom => restroom.restroom_type ===this.state.filterTerm)
     // }
-    if (this.state.filterTerm === "public") {
+    if (this.state.sortTerm === "public") {
       filteredRestrooms = filteredRestrooms.filter(
         restroom => restroom.restroom_type === this.state.sortTerm
       );
-    } else if (this.state.filterTerm === "coffee shop") {
+    } else if (this.state.sortTerm === "coffee shop") {
       filteredRestrooms = filteredRestrooms.filter(
         restroom => restroom.restroom_type === this.state.sortTerm
       );
-    } else if (this.state.filterTerm === "hotel") {
+    } else if (this.state.sortTerm === "hotel") {
       filteredRestrooms = filteredRestrooms.filter(
         restroom => restroom.restroom_type === this.state.sortTerm
       );
-    } else if (this.state.filterTerm === "park") {
+    } else if (this.state.sortTerm === "book store") {
       filteredRestrooms = filteredRestrooms.filter(
         restroom => restroom.restroom_type === this.state.sortTerm
       );
-    } else if (this.state.filterTerm === "fast food") {
+    } else if (this.state.sortTerm === "fast food") {
       filteredRestrooms = filteredRestrooms.filter(
         restroom => restroom.restroom_type === this.state.sortTerm
       );
     }
+    console.log(filteredRestrooms);
     return filteredRestrooms.map(restroom => {
       return (
         <Restroom
@@ -88,31 +99,43 @@ class Home extends Component {
   };
 
   render() {
-    console.log(this.state.allRestrooms);
+    console.log(this.state.sortTerm);
+    console.log(this.state.selectedMarker);
     return (
       <div>
         <h2>Are you looking for a nice restroom nearby?</h2>
         <br></br>
         <div className="home-map">
-          <Filter
-            setFilterTerm={this.setFilterTerm}
-            sortTerm={this.state.sortTerm}
-            term={this.state.filterTerm}
-            setSortTerm={this.setSortTerm}
-          />
           <HomeMap
             coordinates={{
               lat: this.state.xcoordinate,
               lng: this.state.ycoordinate
             }}
             allRestrooms={this.state.allRestrooms}
+            selectedMarker={this.state.selectedMarker}
+            onHover={this.handleHover}
+            hovered={this.state.hovered}
+            addFave={this.props.addFave}
           />
+          <div className="restroom-faves">
+            <RestroomFavorites
+              onHover={this.handleHover}
+              likedSpot={this.props.likedSpot}
+              addFave={this.props.addFave}
+            />
+          </div>
         </div>
-        <div className="flex-container">
+        <div className="filter">
+        <Filter
+          setFilterTerm={this.setFilterTerm}
+          sortTerm={this.state.sortTerm}
+          term={this.state.filterTerm}
+          setSortTerm={this.setSortTerm}
+        />
+        </div>
+        <div className="restroomlist">
+          <h2>Restrooms List</h2>
           {this.filterSpot()}
-        </div>
-        <div className="restroom-faves">
-          <RestroomFavorites />
         </div>
       </div>
     );

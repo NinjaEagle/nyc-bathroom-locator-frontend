@@ -23,27 +23,7 @@ import mapStyles from "./mapStyles";
     // }
   function Map(props) {
 
-    // let allCoordinates = this.props.allRestrooms.map(restroom => {
-    //   console.log(restroom);
-    //   return (
-    //     <Marker
-    //       key={restroom.id}
-    //         position ={{
-    //             lat:restroom.latitude,
-    //             lng:restroom.longitude
-    //         }}
-    //       text={`📍${restroom.name}`}
-    //       restroom_type={restroom.restroom_type}
-    //       history={this.props.history}
-    //       onClick={() =>{
-    //           setSelectedRestroom(restroom);
-    //       }}
-    //     />
-    //   );
-    // });
-
   const [selectedSpot,setSelectedSpot] = useState(null);
-  console.log(props);
 
   return (
     <GoogleMap
@@ -65,23 +45,27 @@ import mapStyles from "./mapStyles";
             url: "/unisex.svg",
             scaledSize: new window.google.maps.Size(25, 25)
           }}
+          animation={window.google.maps.Animation.DROP}
         />
       ))}
 
       {selectedSpot && (
         <InfoWindow
+          visible={true}
           position={{
-            lat: selectedSpot.latitude,
-            lng: selectedSpot.longitude
+            lat: parseFloat(selectedSpot.latitude),
+            lng: parseFloat(selectedSpot.longitude)
+          }}
+          onCloseClick={() => {
+            setSelectedSpot(null);
           }}
         >
           <div>
             <h2>{selectedSpot.name}</h2>
             <p>Type: {selectedSpot.restroom_type}</p>
             <p>Wheelchair Accessible?: {selectedSpot.wheelchair_accesible}</p>
-            <p onClick={props.onClick}>
-              Save it to your favorites?
-              </p>
+            {/* Trying to fix the onclick this.props.addFave(selectedSpot) */}
+            <p>Save it to your favorites? <button onClick={null}>Yes!</button></p>
           </div>
         </InfoWindow>
       )}
@@ -95,10 +79,10 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 export default function HomeMap(props){
   console.log(props.allRestrooms)  
   return (
-    <div className="map" style={{ width: "70vw", height: "80vh" }}>
+    <div className="map" style={{ width: "60vw", height: "70vh" }}>
       <WrappedMap
         googleMapURL={
-          "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBbPZk-23gI_qR3vn7ld7_RjxzSkV0Nktc"
+          "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAB5LXzdasiRgK7WSMJXayjA1QffRuzSmc"
         }
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `100%` }} />}
@@ -106,7 +90,7 @@ export default function HomeMap(props){
         restrooms={props.allRestrooms}
       />
     </div>
-  )
+  );
 }
 
 

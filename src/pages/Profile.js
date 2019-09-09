@@ -30,14 +30,30 @@ class Profile extends Component {
     //   this.props.history.push("/login");
     // }
   }
+  showFavorites = (props) => {
+    console.log(this.props)
+    return this.props.likedSpot.map(restroom => {
+      return (
+        <div>
+          <h3>{restroom.name}</h3>
+          <h3>Restroom Type: {restroom.restroom_type}</h3>
+          <h3>Wheelchair Accesible?:{restroom.wheelchair_accesible}</h3>
+        </div>
+      );
+    }) 
+  }
 
   render() {
     
     return (
       <div className="welcome">
-        <h2>Your account info</h2>
-        <h2>Saved Restrooms and Reviews</h2>
+        <h2>Saved Restrooms and Notes</h2>
         {this.props.username ? `Welcome, ${this.props.username}!` : null}
+        <ul className="favorites">
+          <span></span>
+          <h3>{this.showFavorites()}</h3>
+          <h2>Add a review:</h2>
+        </ul>
       </div>
     );
   }

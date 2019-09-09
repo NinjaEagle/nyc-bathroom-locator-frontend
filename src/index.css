@@ -11,3 +11,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+h4{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ,
+  sans-serif;
+  color: blueviolet;
+  margin: 10px;
+}
+.content{
+  align-items: center
+}
+
+/* Filter list styling */
+.filter{
+  margin: 2%;
+  height:20px;
+  padding: 10px;
+  float: left;
+  text-align: center;
+  letter-spacing: 1px;
+  color: slateblue;
+};
+
+.filter-list{
+  flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  float: left;
+}
+
+.sort{
+  flex-wrap: wrap;
+  display:block;
+}
+.restroomlist {
+  float:left;
+}
+/* .sort input{
+  padding-left:5px;
+} */
+
+
+.ui.card{
+  margin-left: 60%;
+}

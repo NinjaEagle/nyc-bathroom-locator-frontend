@@ -16,7 +16,7 @@ class Signup extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    fetch(`http://localhost:3000/users`, {
+    fetch(`http://localhost:3000/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +31,7 @@ class Signup extends Component {
           localStorage.user_id = data.user_id;
           console.log(data)
           console.log(localStorage)
-          this.props.history.push("/");
+          this.props.history.push("/profile");
         }
       });
     // if (data.token) {

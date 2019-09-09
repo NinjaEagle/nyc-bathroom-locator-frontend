@@ -26,7 +26,6 @@ export default class NavBar extends Component {
     };
 
     const navbar = {
-      background: "white",
       
     }
  
@@ -35,9 +34,9 @@ export default class NavBar extends Component {
         <div className="navbar" style={navbar}>
           <div className="buttons">
             <span className="title">NYC Restroom Finder</span>
-            <NavLink to="/login" style={link}>
+            {/* <NavLink to="/login" style={link}>
               Login
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="/home"
               style={link}
@@ -57,7 +56,7 @@ export default class NavBar extends Component {
               style={{ margin: 15 }}
               onClick={this.onLogout}
               exact
-              to="/"
+              to="/home"
             >
               Logout
             </NavLink>
