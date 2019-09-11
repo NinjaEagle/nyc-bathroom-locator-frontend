@@ -24,16 +24,12 @@ export default class NavBar extends Component {
       textDecoration: "none",
       color: "white"
     };
-
-    const navbar = {
-      
-    }
+    
  
     return (
-      <div>
-        <div className="navbar" style={navbar}>
+        <div className="navbar">
           <div className="buttons">
-            <span className="title">NYC Restroom Finder</span>
+            <h2 className="title">NYC Restroom Finder</h2>
             {/* <NavLink to="/login" style={link}>
               Login
             </NavLink> */}
@@ -62,7 +58,6 @@ export default class NavBar extends Component {
             </NavLink>
           </div>
         </div>
-      </div>
     );
   }
 }

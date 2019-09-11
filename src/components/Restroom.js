@@ -45,31 +45,36 @@ class Restroom extends Component {
   
     return (
       <div>
-        <div class="ui card">
-          <div class="content">
-            <div class="header">
+        <div className="ui card">
+          <div className="content">
+            <div className="header">
               <h4 className="point" onMouseMove={this.onMouseMove}>
                 {this.props.restroom.name}
               </h4>
             </div>
-            <div class="meta"></div>
-            <div class="description">
-              Type: {this.props.restroom.restroom_type}
-              <br></br>
-              Wheelchair Accessible? {this.props.restroom.wheelchair_accesible}
+            <div className="meta"></div>
+            <div className="description">
+              <p>Address: {this.props.restroom.address}</p>
+              <p>Type: {this.props.restroom.restroom_type}</p>
+              <p>
+                Wheelchair Accessible?{" "}
+                {this.props.restroom.wheelchair_accessible}
+              </p>
+              <p>Hours: {this.props.restroom.start_time} to {this.props.restroom.end_time}</p>
             </div>
             <button
-              class="ui vertical animated button"
+              className="ui vertical animated button"
               onClick={this.handleClick}
             >
-              <div class="hidden content">Add</div>
-              <div class="visible content">
-                <i aria-hidden="true" class="favorite icon"></i>
+              <div className="hidden content">Add</div>
+              <div className="visible content">
+                <i aria-hidden="true" className="favorite icon"></i>
               </div>
             </button>
           </div>
         </div>
       </div>
+      
     );
   }
 }

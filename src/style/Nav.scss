@@ -1,9 +1,11 @@
 .navbar{
-    margin-top: .2%;
     justify-content: start;
     width: 100%;
-    background-color: rgb(167, 149, 151);
+    background-color: darksalmon;
+    height:5vh;
+    display:flex;
+    justify-content: flex-end;
 }
 .title{
-    font-size: 30px
+    font-size: 50px;
 }

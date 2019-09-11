@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import Restroom from './Restroom'
 class RestroomFavorites extends React.Component {
   
-  showFavorites = (props) => {
+  showFavorites = () => {
     console.log(this.props)
-    return this.props.likedSpot.map(restroom => {
+    return this.props.faveSpots.map(restroom => {
       return (
         <div>
-          <h3>{restroom.name}</h3>
-          <h3>Restroom Type: {restroom.restroom_type}</h3>
-          <h3>Wheelchair Accesible?:{restroom.wheelchair_accesible}</h3>
-        </div>
+          <li>
+          <h4>{restroom.restroom.name}</h4>
+          <p>{restroom.restroom.address}</p>
+          <p>Restroom Type: {restroom.restroom.restroom_type}</p>
+          <p>Wheelchair Accesible? {restroom.restroom.wheelchair_accessible}</p>
+          <p>Hours: {restroom.restroom.start_time}-{restroom.restroom.end_time}</p>
+          <button onClick={(event)=>{this.props.deleteFave(restroom)}}>Delete me</button>
+          </li><br></br>
+        </div>  
       );
     }) 
   }
@@ -20,11 +24,9 @@ class RestroomFavorites extends React.Component {
     
     return (
       <div className="favorites">
-        <h2>Your favorites</h2>
-        <ul className="favorites">
-        <span></span>
-        <h3>{this.showFavorites()}</h3>
-        <h2>Add a review:</h2>
+        <h2 className="favorite-title">Your favorites</h2>
+        <ul className="favorites-list">
+        {this.showFavorites()}
         </ul>
       </div>
     )
