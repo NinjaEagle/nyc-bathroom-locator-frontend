@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Marker from "./Marker";
 import {Card, Button} from 'semantic-ui-react';
 
 

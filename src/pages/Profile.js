@@ -1,36 +1,44 @@
 import React, { Component, Fragment } from "react";
 import "../App.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Review from '../components/Review'
 class Profile extends Component {
   state = {
     myReviews: [],
-    myFaves:[]
+    myFaves: []
   };
+  componentDidMount() {
+    fetch("http://localhost:3000/favorites")
+      .then(res => res.json())
+      .then(data =>
+        this.setState({
+          myFaves: data
+        })
+      );
+  }
 
-  
   showFavorites = () => {
-    return this.props.faveSpots.map(restroom => {
+    return this.state.myFaves.map(restroom => {
       return (
         <div>
           <li>
-            <h3 className="favorite-title">{restroom.restroom.name}</h3>
-            <p>{restroom.restroom.address}</p>
-            <p>Restroom Type: {restroom.restroom.restroom_type}</p>
-            <p>
+            <h3 className="favorite -title">{restroom.restroom.name}</h3>
+            <h4>{restroom.restroom.address}</h4>
+            <h4>Restroom Type: {restroom.restroom.restroom_type}</h4>
+            <h4>
               Wheelchair Accessible? {restroom.restroom.wheelchair_accessible}
-            </p>
-            <p>
+            </h4>
+            <h4>
               Hours: {restroom.restroom.start_time}-{restroom.restroom.end_time}
-              <button
-                onClick={event => {
-                  this.props.deleteFave(restroom);
-                }}
-              >
-                {" "}
-                Delete this!{" "}
-              </button>
-            </p>
+            </h4>
+            <button
+              onClick={event => {
+                this.props.deleteFave(restroom);
+              }}
+            >
+              {" "}
+              Delete this!{" "}
+            </button>
           </li>
           <br></br>
         </div>
@@ -48,7 +56,7 @@ class Profile extends Component {
     return (
       <div className="user-info">
         <div className="profile-header">
-          <h3>My Faves</h3>
+          <h3 className="faves-heading">My Faves</h3>
           <div className="my-faves">
             {this.props.username ? `Welcome, ${this.props.username}!` : null}
             <ul className="favorites">

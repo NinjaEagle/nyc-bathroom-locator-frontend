@@ -95,11 +95,33 @@ class Filter extends Component {
                 type="radio"
                 className="sort"
                 name="name"
+                value="department store"
+                checked={this.props.sortTerm === "department store" ? true : ""}
+                onChange={event => this.props.setSortTerm(event.target.value)}
+              />
+              Department Store
+            </label>
+            <label className="sort">
+              <input
+                type="radio"
+                className="sort"
+                name="name"
                 value="other"
                 checked={this.props.sortTerm === "other" ? true : ""}
                 onChange={event => this.props.setSortTerm(event.target.value)}
               />
               Other
+            </label>
+            <label className="sort">
+              <input
+                type="checkbox"
+                className="sort"
+                name="name"
+                value="Yes"
+                checked={this.props.sortTerm === "Yes" ? true : ""}
+                onChange={event => this.props.setSortTerm(event.target.value)}
+              />
+              Wheelchair Accessible
             </label>
             <br />
           </div>

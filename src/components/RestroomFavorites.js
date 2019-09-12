@@ -36,7 +36,7 @@ class RestroomFavorites extends React.Component {
   render() {
     return (
       <div className="favorites">
-        <h2 className="favorite-title">Your favorites</h2>
+        <h2 className="favorite-title">Selected Restrooms</h2>
         <ul className="favorites-list">{this.showFavorites()}</ul>
       </div>
     );

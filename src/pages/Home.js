@@ -76,8 +76,7 @@ class Home extends Component {
     // Filtering the spots according to type
     if (this.state.sortTerm === "All") {
       filteredRestrooms = [...this.state.allRestrooms];
-    }
-    else if (this.state.sortTerm === "public") {
+    } else if (this.state.sortTerm === "public") {
       filteredRestrooms = filteredRestrooms.filter(
         restroom => restroom.restroom_type === this.state.sortTerm
       );
@@ -97,10 +96,18 @@ class Home extends Component {
       filteredRestrooms = filteredRestrooms.filter(
         restroom => restroom.restroom_type === this.state.sortTerm
       );
-    }
-      else {
+    }  else if (this.state.sortTerm === "department store") {
       filteredRestrooms = filteredRestrooms.filter(
-        restroom => restroom.restroom_type === "other"
+        restroom => restroom.restroom_type === this.state.sortTerm
+      );
+    }
+      else if (this.state.sortTerm === "other") {
+      filteredRestrooms = filteredRestrooms.filter(
+        restroom => restroom.restroom_type === this.state.sortTerm
+      );
+    } else if (this.state.sortTerm === "Yes") {
+      filteredRestrooms = filteredRestrooms.filter(
+        restroom => restroom.wheelchair_accessible === this.state.sortTerm
       );
     };
     console.log(filteredRestrooms);
@@ -121,7 +128,7 @@ class Home extends Component {
     console.log(this.state.sortTerm);
     return (
       <div className="home">
-        <h2 className="slogan">When you gotta go you gotta go</h2>
+        <h2 className="slogan">A piece of mind from a click away</h2>
         <br></br>
         <div className="home-map">
           <HomeMap

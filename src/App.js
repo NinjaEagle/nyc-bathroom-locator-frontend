@@ -32,7 +32,7 @@ class App extends React.Component {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          user_id: 1,
+          user_id: 3,
           restroom_id: spot.id
         })
       })

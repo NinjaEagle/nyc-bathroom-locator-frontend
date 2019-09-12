@@ -7,7 +7,7 @@ import mapStyles from "./mapStyles";
 
     return (
       <GoogleMap
-        defaultZoom={11}
+        defaultZoom={13.5}
         defaultCenter={{ lat: 40.700771, lng: -73.987411 }}
         defaultOptions={{ styles: mapStyles}}
       >
@@ -63,7 +63,7 @@ export default function HomeMap(props){
     <div className="map">
       <WrappedMap
         googleMapURL={
-          "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}"
+          "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyB7k7XnsI-2jwZs4DvwFyKqKCNEDtYElmg"
         }
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `100%` }} />}
@@ -76,25 +76,7 @@ export default function HomeMap(props){
   );
 }
 
-
-/* {props.spots.map((spot) => {
-            // console.log(props.hovered === spot.name)
-            console.log("props", props.hovered);
-            // console.log("spot", spot.name);
-            return (
-             <Marker animation={props.hovered === spot.name ? window.google.maps.Animation.BOUNCE : null} hovered={props.hovered} onHover={props.onHover} key={spot.id} name={spot.name} position={{lat:parseFloat(spot.lat),lng: parseFloat(spot.lng),
-            }}
-              onClick={() => {
-                setSelectedSpot(spot);
-              }}
-
-              icon = {{
-                url: '/search.png',
-                scaledSize: new window.google.maps.Size(25,25)
-              }}
-            />
-          )})} */
-
+// ${process.env.REACT_APP_GOOGLE_KEY}
 
   //  {selectedSpot && (
 //             <InfoWindow
