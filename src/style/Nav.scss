@@ -1,11 +1,19 @@
 .navbar{
-    justify-content: start;
     width: 100%;
-    background-color: darksalmon;
-    height:5vh;
+    background-color: rgb(241, 132, 95);
+    height:6vh;
     display:flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 .title{
     font-size: 50px;
+    font-family: 'Lato',
+    sans-serif;
+    margin-top: 14px;
+}
+
+.buttons{
+    display: flex;
+    width: 100%;
+    align-items: center;
 }

@@ -3,46 +3,62 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import Review from '../components/Review'
 class Profile extends Component {
-  state={
-    myReviews:[],
-  }
-  showFavorites = (props) => {
-    console.log(this.props)
+  state = {
+    myReviews: [],
+    myFaves:[]
+  };
+
+  
+  showFavorites = () => {
     return this.props.faveSpots.map(restroom => {
       return (
         <div>
-          <h3>{restroom.restroom.name}</h3>
-          <p>{restroom.restroom.address}</p>
-          <p>Restroom Type: {restroom.restroom.restroom_type}</p>
-          <p>Wheelchair Accesible: {restroom.restroom.wheelchair_accessible}</p>
-          <p>Hours: {restroom.restroom.start_time} to {restroom.restroom.end_time}</p>
+          <li>
+            <h3 className="favorite-title">{restroom.restroom.name}</h3>
+            <p>{restroom.restroom.address}</p>
+            <p>Restroom Type: {restroom.restroom.restroom_type}</p>
+            <p>
+              Wheelchair Accessible? {restroom.restroom.wheelchair_accessible}
+            </p>
+            <p>
+              Hours: {restroom.restroom.start_time}-{restroom.restroom.end_time}
+              <button
+                onClick={event => {
+                  this.props.deleteFave(restroom);
+                }}
+              >
+                {" "}
+                Delete this!{" "}
+              </button>
+            </p>
+          </li>
+          <br></br>
         </div>
       );
-    }) 
-  }
+    });
+  };
 
-  createReview = (newReview) => {
+  createReview = newReview => {
     this.setState({
       myReviews: [...this.state.myReviews, newReview]
-    })
-  }
+    });
+  };
 
   render() {
-    
     return (
       <div className="user-info">
         <div className="profile-header">
-          <div className="favorite-restrooms">
-            <h3>My Faves</h3>
+          <h3>My Faves</h3>
+          <div className="my-faves">
             {this.props.username ? `Welcome, ${this.props.username}!` : null}
             <ul className="favorites">
               <h3>{this.showFavorites()}</h3>
             </ul>
           </div>
-            <Review
-              createReview={this.createReview}
-              myReviews={this.state.myReviews}
-            />
+          <Review
+            createReview={this.createReview}
+            myReviews={this.state.myReviews}
+          />
         </div>
       </div>
     );

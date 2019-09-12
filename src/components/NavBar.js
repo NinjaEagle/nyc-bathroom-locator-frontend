@@ -27,27 +27,27 @@ export default class NavBar extends Component {
     
  
     return (
-        <div className="navbar">
-          <div className="buttons">
-            <h2 className="title">NYC Restroom Finder</h2>
-            {/* <NavLink to="/login" style={link}>
+      <div className="navbar">
+        <div className="buttons">
+          <h2 className="title">NYC Restroom Finder</h2>
+          {/* <NavLink to="/login" style={link}>
               Login
             </NavLink> */}
-            <NavLink
-              to="/home"
-              style={link}
-            >
-              Home
-            </NavLink>
-
-            <NavLink to="/data" style={link}>
+          <NavLink to="/home" style={link}>
+            Home
+          </NavLink>
+          
+          <NavLink to="/about" style={link}>
+            About
+          </NavLink>
+          {/* <NavLink to="/data" style={link}>
               Data
-            </NavLink>
+            </NavLink> */}
 
-            <NavLink to="/profile" style={link}>
-              Profile
-            </NavLink>
-            <NavLink
+          <NavLink to="/profile" style={link}>
+            Profile
+          </NavLink>
+          {/* <NavLink
               className="nav-link"
               style={{ margin: 15 }}
               onClick={this.onLogout}
@@ -55,9 +55,9 @@ export default class NavBar extends Component {
               to="/home"
             >
               Logout
-            </NavLink>
-          </div>
+            </NavLink> */}
         </div>
+      </div>
     );
   }
 }

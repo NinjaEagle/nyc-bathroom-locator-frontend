@@ -4,11 +4,10 @@ import NavBar from "./components/NavBar";
 import Pages from './pages';
 import Home from "./pages/Home";
 import Profile from "./pages/Profile"
+import About from "./pages/About"
 // styling
 import './App.css';
-// import "@fortawesome/fontawesome-free/css/all.min.css";
-// import "bootstrap-css-only/css/bootstrap.min.css";
-// import "mdbreact/dist/css/mdb.css";
+
 
 class App extends React.Component {
   state = {
@@ -23,14 +22,13 @@ class App extends React.Component {
   redirect = page => {
     this.setState({ page: page });
   };
-  
+
   addFave = spot => {
-    console.log(spot);
     if (!this.state.faveSpots.includes(spot)) {
       fetch("http://localhost:3000/favorites", {
         method: "POST",
         headers: {
-          "Accepts": "application/json",
+          Accepts: "application/json",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -48,6 +46,7 @@ class App extends React.Component {
   };
 
   deleteFave = favorite => {
+    console.log(favorite);
     fetch(`http://localhost:3000/favorites/${favorite.id}`, {
       method: "DELETE"
     }).then(() => {
@@ -59,9 +58,18 @@ class App extends React.Component {
       });
     });
   };
+  // componentDidMount() {
+  //   fetch(`http://localhost:3000/favorites`)
+  //     .then(resp => resp.json())
+  //     .then(data => {
+  //       this.setState({
+  //         faveSpots: data
+  //       });
+  //     });
+  // }
 
   render() {
-    console.log(this.state.faveSpots)
+    let faveSpots= this.state.faveSpots;
     return (
       <div className="app">
         <NavBar />
@@ -71,9 +79,17 @@ class App extends React.Component {
             path="/home"
             render={routerProps => (
               <Home
-                faveSpots={this.state.faveSpots}
+                faveSpots={faveSpots}
                 deleteFave={this.deleteFave}
                 addFave={this.addFave}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/about"
+            render={routerProps => (
+              <About
               />
             )}
           />
@@ -85,15 +101,14 @@ class App extends React.Component {
             render={routerProps => (
               <Profile
                 {...routerProps}
-                faveSpots={this.state.faveSpots}
+                faveSpots={faveSpots}
                 addFave={this.addFave}
+                deleteFave={this.deleteFave}
               />
             )}
           />
         </Switch>
-        <div className="bottom bar"> 
-              Contact me:
-        </div>
+        <div className="bottom bar">Made by fellow Glorious Pegasus: Kevin Wang</div>
       </div>
     );
   }

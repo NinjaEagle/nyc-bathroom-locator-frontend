@@ -3,13 +3,11 @@ import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from 'react-
 import mapStyles from "./mapStyles";
 
   function Map(props) {
-
-    console.log(props)
     const [selectedSpot,setSelectedSpot] = useState(null);
 
     return (
       <GoogleMap
-        defaultZoom={12}
+        defaultZoom={11}
         defaultCenter={{ lat: 40.700771, lng: -73.987411 }}
         defaultOptions={{ styles: mapStyles}}
       >
@@ -65,7 +63,7 @@ export default function HomeMap(props){
     <div className="map">
       <WrappedMap
         googleMapURL={
-          "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAB5LXzdasiRgK7WSMJXayjA1QffRuzSmc"
+          "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}"
         }
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `100%` }} />}

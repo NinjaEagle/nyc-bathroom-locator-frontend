@@ -58,7 +58,7 @@ class Review extends Component {
               return (
                 <li>
                   <div>
-                    <h4>{review.name}</h4>
+                    <h3 className="favorite-title">{review.name}</h3>
                     {review.review}
                   </div>
                 </li>

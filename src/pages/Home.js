@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import MapContainer from '../containers/MapContainer';
 import HomeMap from '../components/HomeMap';
 import RestroomFavorites from '../components/RestroomFavorites';
 import Restroom from '../components/Restroom';
@@ -16,6 +15,7 @@ class Home extends Component {
     favoriteSpot: [],
     userAddress:'',
     currentProfile: null,
+    myFaves: []
   };
 
   getAddress() {
@@ -46,6 +46,7 @@ class Home extends Component {
           allRestrooms: data
         });
       });
+   
   }
   // setFilterTerm = term => {
   //   this.setState({
@@ -69,15 +70,8 @@ class Home extends Component {
     });
   };
 
-  // addFave = spot => {
-  //   this.setState(prevState => {
-  //     return {
-  //       favoriteSpot: [spot, ...prevState.favoriteSpot]
-  //     };
-  //   });
-  // };
-
   filterSpot = () => {
+    // debugger
     let filteredRestrooms = [...this.state.allRestrooms];
     // Filtering the spots according to type
     if (this.state.sortTerm === "All") {
@@ -127,7 +121,7 @@ class Home extends Component {
     console.log(this.state.sortTerm);
     return (
       <div className="home">
-        <h2>Are you looking for a nice restroom nearby?</h2>
+        <h2 className="slogan">When you gotta go you gotta go</h2>
         <br></br>
         <div className="home-map">
           <HomeMap
@@ -148,7 +142,7 @@ class Home extends Component {
               onHover={this.handleHover}
               faveSpots={this.props.faveSpots}
               deleteFave={this.props.deleteFave}
-              addFave={this.props.addFave}
+              myFaves={this.props.myFaves}
             />
           </div>
         </div>
