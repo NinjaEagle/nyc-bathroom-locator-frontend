@@ -28,7 +28,7 @@ class Home extends Component {
         this.state.currentProfile.user_location
           ? this.state.currentProfile.user_location.longitude
           : this.state.ycoordinate
-      }&key='AIzaSyAB5LXzdasiRgK7WSMJXayjA1QffRuzSmc'`
+      }&key=`
     )
       .then(res => res.json())
       .then(data =>
@@ -128,7 +128,7 @@ class Home extends Component {
     console.log(this.state.sortTerm);
     return (
       <div className="home">
-        <h2 className="slogan">A piece of mind from a click away</h2>
+        {/* <h2 className="slogan">A piece of mind from a click away</h2> */}
         <br></br>
         <div className="home-map">
           <HomeMap

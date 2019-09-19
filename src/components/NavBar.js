@@ -33,7 +33,7 @@ export default class NavBar extends Component {
           {/* <NavLink to="/login" style={link}>
               Login
             </NavLink> */}
-          <NavLink to="/home" style={link}>
+          <NavLink to="/" style={link}>
             Home
           </NavLink>
           

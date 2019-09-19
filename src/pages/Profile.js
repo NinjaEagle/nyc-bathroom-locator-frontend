@@ -23,21 +23,20 @@ class Profile extends Component {
         <div>
           <li>
             <h3 className="favorite -title">{restroom.restroom.name}</h3>
-            <h4>{restroom.restroom.address}</h4>
-            <h4>Restroom Type: {restroom.restroom.restroom_type}</h4>
-            <h4>
+            <p>{restroom.restroom.address}</p>
+            <p>Restroom Type: {restroom.restroom.restroom_type}</p>
+            <p>
               Wheelchair Accessible? {restroom.restroom.wheelchair_accessible}
-            </h4>
-            <h4>
+            </p>
+            <p>
               Hours: {restroom.restroom.start_time}-{restroom.restroom.end_time}
-            </h4>
+            </p>
             <button
               onClick={event => {
                 this.props.deleteFave(restroom);
               }}
             >
-              {" "}
-              Delete this!{" "}
+              Delete this!
             </button>
           </li>
           <br></br>

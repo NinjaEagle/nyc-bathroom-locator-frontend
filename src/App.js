@@ -70,13 +70,14 @@ class App extends React.Component {
 
   render() {
     let faveSpots= this.state.faveSpots;
+    console.log(faveSpots)
     return (
       <div className="app">
         <NavBar />
         <Switch>
           <Route
             exact
-            path="/home"
+            path="/"
             render={routerProps => (
               <Home
                 faveSpots={faveSpots}

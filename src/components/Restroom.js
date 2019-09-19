@@ -35,7 +35,7 @@ class Restroom extends Component {
   handleClick = ( ) => {
     console.log(this.props)
     this.props.addFave(this.props.restroom)
-    alert("Yay you now can view your new saved Restroom on your profile!")
+    // alert("Yay you now can view your new saved Restroom on your profile!")
   }
     
 

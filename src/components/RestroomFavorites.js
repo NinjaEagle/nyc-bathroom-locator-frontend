@@ -11,14 +11,14 @@ class RestroomFavorites extends React.Component {
         <div>
           <li>
             <h4 className="favorite-title">{restroom.restroom.name}</h4>
-            <span>{restroom.restroom.address}</span>
-            <h5>Restroom Type: {restroom.restroom.restroom_type}</h5>
-            <h5>
+            <p>{restroom.restroom.address}</p>
+            <p>Restroom Type: {restroom.restroom.restroom_type}</p>
+            <p>
               Wheelchair Accesible? {restroom.restroom.wheelchair_accessible}
-            </h5>
-            <h5>
+            </p>
+            <p>
               Hours: {restroom.restroom.start_time}-{restroom.restroom.end_time}
-            </h5>
+            </p>
             <button
               onClick={event => {
                 this.props.deleteFave(restroom);
@@ -34,9 +34,10 @@ class RestroomFavorites extends React.Component {
   };
 
   render() {
+    console.log(this.props.faveSpots)
     return (
       <div className="favorites">
-        <h2 className="favorite-title">Selected Restrooms</h2>
+        <h2 className="favorite-title">My Favorited Restrooms</h2>
         <ul className="favorites-list">{this.showFavorites()}</ul>
       </div>
     );

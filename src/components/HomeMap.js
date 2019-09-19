@@ -63,7 +63,7 @@ export default function HomeMap(props){
     <div className="map">
       <WrappedMap
         googleMapURL={
-          "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyB7k7XnsI-2jwZs4DvwFyKqKCNEDtYElmg"
+          "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key="
         }
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `100%` }} />}
