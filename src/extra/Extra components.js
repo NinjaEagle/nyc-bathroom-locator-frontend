@@ -1,4 +1,4 @@
-{/* <MDBContainer className="mt-5">
+/* <MDBContainer className="mt-5">
   <div className="x">
     <MDBInput
       type="radio"
@@ -64,4 +64,26 @@
     type="radio"
     onChange={event => this.props.setSortTerm(event.target.value)}
   />
-</MDBContainer>; */}
+</MDBContainer>; */
+
+
+## Get user's location
+  getAddress() {
+     fetch(
+       `https://maps.googleapis.com/maps/api/geocode/json?latlng=${
+         this.state.currentProfile.user_location
+           ? this.state.currentProfile.user_location.latitude
+           : this.state.xcoordinate
+       },${
+         this.state.currentProfile.user_location
+           ? this.state.currentProfile.user_location.longitude
+           : this.state.ycoordinate
+       }&key=`
+     )
+       .then(res => res.json())
+       .then(data =>
+         this.setState({
+           userAddress: data.results[0].formatted_address
+         })
+       );
+   }

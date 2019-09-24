@@ -8,7 +8,6 @@ import About from "./pages/About"
 // styling
 import './App.css';
 
-
 class App extends React.Component {
   state = {
     xcoordinate: 40.700771,
@@ -58,15 +57,7 @@ class App extends React.Component {
       });
     });
   };
-  // componentDidMount() {
-  //   fetch(`http://localhost:3000/favorites`)
-  //     .then(resp => resp.json())
-  //     .then(data => {
-  //       this.setState({
-  //         faveSpots: data
-  //       });
-  //     });
-  // }
+ 
 
   render() {
     let faveSpots= this.state.faveSpots;
@@ -94,8 +85,6 @@ class App extends React.Component {
               />
             )}
           />
-          {/* <Route exact path="/login" component={Pages.Login} />
-          <Route exact path="/signup" component={Pages.Signup} /> */}
           <Route
             exact
             path="/profile"

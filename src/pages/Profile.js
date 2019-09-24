@@ -52,6 +52,7 @@ class Profile extends Component {
   };
 
   render() {
+    let favoritedRestrooms= this.state.myFaves
     return (
       <div className="user-info">
         <div className="profile-header">

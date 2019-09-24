@@ -3,6 +3,7 @@ import HomeMap from '../components/HomeMap';
 import RestroomFavorites from '../components/RestroomFavorites';
 import Restroom from '../components/Restroom';
 import Filter from '../components/Filter';
+
 class Home extends Component {
   state = {
     xcoordinate: 40.700771,
@@ -18,26 +19,6 @@ class Home extends Component {
     myFaves: []
   };
 
-  getAddress() {
-    fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${
-        this.state.currentProfile.user_location
-          ? this.state.currentProfile.user_location.latitude
-          : this.state.xcoordinate
-      },${
-        this.state.currentProfile.user_location
-          ? this.state.currentProfile.user_location.longitude
-          : this.state.ycoordinate
-      }&key=`
-    )
-      .then(res => res.json())
-      .then(data =>
-        this.setState({
-          userAddress: data.results[0].formatted_address
-        })
-      );
-  }
-
   componentDidMount() {
     fetch(`http://localhost:3000/restrooms`)
       .then(resp => resp.json())
@@ -46,13 +27,8 @@ class Home extends Component {
           allRestrooms: data
         });
       });
-   
   }
-  // setFilterTerm = term => {
-  //   this.setState({
-  //     filterTerm: term
-  //   });
-  // };
+
   setSortTerm = term => {
     this.setState({
       sortTerm: term
@@ -71,7 +47,6 @@ class Home extends Component {
   };
 
   filterSpot = () => {
-    // debugger
     let filteredRestrooms = [...this.state.allRestrooms];
     // Filtering the spots according to type
     if (this.state.sortTerm === "All") {
@@ -110,7 +85,6 @@ class Home extends Component {
         restroom => restroom.wheelchair_accessible === this.state.sortTerm
       );
     };
-    console.log(filteredRestrooms);
     return filteredRestrooms.map(restroom => {
       return (
         <Restroom

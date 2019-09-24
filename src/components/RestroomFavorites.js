@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
+
 class RestroomFavorites extends React.Component {
-  state = {
-    myFaves: []
-  };
 
   showFavorites = () => {
     return this.props.faveSpots.map(restroom => {

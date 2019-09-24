@@ -73,7 +73,7 @@ class Filter extends Component {
                 type="radio"
                 className="sort"
                 name="name"
-                value="hotel "
+                value="hotel"
                 checked={this.props.sortTerm === "hotel" ? true : ""}
                 onChange={event => this.props.setSortTerm(event.target.value)}
               />

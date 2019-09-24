@@ -58,12 +58,11 @@ import mapStyles from "./mapStyles";
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export default function HomeMap(props){
-  console.log(props) 
   return (
     <div className="map">
       <WrappedMap
         googleMapURL={
-          "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key="
+          `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
         }
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `100%` }} />}
@@ -75,25 +74,6 @@ export default function HomeMap(props){
     </div>
   );
 }
-
-// ${process.env.REACT_APP_GOOGLE_KEY}
-
-  //  {selectedSpot && (
-//             <InfoWindow
-//             visible={true}
-//             position={{lat:parseFloat(selectedSpot.lat),lng: parseFloat(selectedSpot.lng)}}
-//             onCloseClick={() => {
-//               setSelectedSpot(null);
-//             }}
-// >
-//             <div className="map">
-//             <h4 onClick={props.onClick}>{selectedSpot.name}</h4>
-//             <h6>{selectedSpot.tag}</h6>
-//             <img style={{width: 350, height: 300}} src={selectedSpot.img}/>
-//             </div>
-//             </InfoWindow>
-//           )}
-
 
 
 
