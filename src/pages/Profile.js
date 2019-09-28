@@ -5,24 +5,23 @@ import Review from '../components/Review'
 class Profile extends Component {
   state = {
     myReviews: [],
-    myFaves: []
   };
-  componentDidMount() {
-    fetch("http://localhost:3000/favorites")
-      .then(res => res.json())
-      .then(data =>
-        this.setState({
-          myFaves: data
-        })
-      );
-  }
+  // componentDidMount() {
+  //   fetch("http://localhost:3000/favorites")
+  //     .then(res => res.json())
+  //     .then(data =>
+  //       this.setState({
+  //         myFaves: data
+  //       })
+  //     );
+  // }
 
   showFavorites = () => {
-    return this.state.myFaves.map(restroom => {
+    return this.props.faveSpots.map(restroom => {
       return (
         <div>
           <li>
-            <h3 className="favorite -title">{restroom.restroom.name}</h3>
+            <h3 className="favoritetitle">{restroom.restroom.name}</h3>
             <p>{restroom.restroom.address}</p>
             <p>Restroom Type: {restroom.restroom.restroom_type}</p>
             <p>
@@ -36,7 +35,7 @@ class Profile extends Component {
                 this.props.deleteFave(restroom);
               }}
             >
-              Delete this!
+              Remove
             </button>
           </li>
           <br></br>
@@ -52,11 +51,10 @@ class Profile extends Component {
   };
 
   render() {
-    let favoritedRestrooms= this.state.myFaves
     return (
       <div className="user-info">
         <div className="profile-header">
-          <h3 className="faves-heading">My Faves</h3>
+          <h3 className="faves-heading">My Go To List</h3>
           <div className="my-faves">
             {this.props.username ? `Welcome, ${this.props.username}!` : null}
             <ul className="favorites">

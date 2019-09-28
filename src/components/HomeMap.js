@@ -46,7 +46,7 @@ import mapStyles from "./mapStyles";
               <p>Type: {selectedSpot.restroom_type}</p>
               <p>Wheelchair Accessible: {selectedSpot.wheelchair_accessible}</p>
               <p>Hours: {selectedSpot.start_time}-{selectedSpot.end_time}</p>
-              <p>Save it to your favorites? <button onClick={() => {props.addFave(selectedSpot)}}>Yes!</button></p>
+              <p>Save it to your selected list? <button onClick={() => {props.addFave(selectedSpot)}}>Yes!</button></p>
             </div>
           </InfoWindow>
         )}

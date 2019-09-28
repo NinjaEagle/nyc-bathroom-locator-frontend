@@ -7,7 +7,7 @@ class RestroomFavorites extends React.Component {
       return (
         <div>
           <li>
-            <h4 className="favorite-title">{restroom.restroom.name}</h4>
+            <h3 className="favoritetitle">{restroom.restroom.name}</h3>
             <p>{restroom.restroom.address}</p>
             <p>Restroom Type: {restroom.restroom.restroom_type}</p>
             <p>
@@ -21,7 +21,7 @@ class RestroomFavorites extends React.Component {
                 this.props.deleteFave(restroom);
               }}
             >
-              Delete this!
+              Remove
             </button>
           </li>
           <br></br>
@@ -31,10 +31,10 @@ class RestroomFavorites extends React.Component {
   };
 
   render() {
-    console.log(this.props.faveSpots)
+
     return (
       <div className="favorites">
-        <h2 className="favorite-title">My Favorited Restrooms</h2>
+        <h2 className="favorites-title">My Selected Restrooms</h2>
         <ul className="favorites-list">{this.showFavorites()}</ul>
       </div>
     );
