@@ -3,9 +3,11 @@ Made by Kevin Wang
 
 This is a NYC Restroom Finder App which utilizes Google Map React  which the user can navigate and select the marker from the map. Clicking on the marker will show the information of the restroom and it can be added to the Favorited Restroom List on the right. There is an option of filtering out the type of restroom as well as the wheelchair accessibility ones on the bottom. The about page has a user story and goes in detail of how to use the website.
 
+## Important Links
 
-which contains the seeded data of selected restrooms and favorites
+Here's the link to the backend: https://github.com/NinjaEagle/nyc-restroom-finder-backend which contains the seeded data of selected restrooms and favorites.
 
+And the video demo of the project: https://youtu.be/7EaZ7jpVICQ
 
 ## Setup
 

@@ -2,6 +2,7 @@
   "name": "nyc-bathroom-finder",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://NinjaEagle.github.io/NinjaEagle.github.io",
   "dependencies": {
     "@babel/runtime": "^7.6.0",
     "dotenv": "^8.1.0",
@@ -23,7 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    
   },
   "eslintConfig": {
     "extends": "react-app"
