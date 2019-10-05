@@ -8,7 +8,6 @@ class Review extends Component {
   };
 
   handleChange = e => {
-    console.log(e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -58,7 +57,7 @@ class Review extends Component {
               return (
                 <li>
                   <div>
-                    <h3 className="favorite-title">{review.name}</h3>
+                    <h3 className="review-title">{review.name}</h3>
                     {review.review}
                   </div>
                 </li>

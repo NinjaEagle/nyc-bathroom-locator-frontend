@@ -31,14 +31,6 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-/* h3{
-  color:white;
-} */
-
-/* h4{
-  color: lightcoral;
-  margin: 2px;
-} */
 .content{
   align-items: center
 }
@@ -71,6 +63,10 @@ body {
   height: 400px;
   background-color: rgba(236, 214, 214, 0.3);
   text-align: center;
+}
+
+.favorites-title {
+  color: white;
 }
 
 /* Filter list styling */
@@ -131,12 +127,18 @@ body {
   color: white;
 }
 
-.favorite-title{
-  color: darkblue;
+.review-title{
+  color: mediumaquamarine;
   font-family: 'Roboto',
   sans-serif;
 }
+.favoritetitle{
+  color: lightcoral;
+}
 
+.favorites{
+  color:black;
+}
 .ui.form{
   padding: 25px 0px;
   width: 492px;
@@ -164,6 +166,7 @@ body {
   height: 259px;
   background-color: rgba(236, 214, 214, 0.3);
   border-radius:10px;
+  color: black;
 }
 
 /* about */
