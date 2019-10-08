@@ -1,4 +1,4 @@
-## NYC Restroom Locator App
+## :restroom:NYC Restroom Locator App:restroom:
 Made by Kevin Wang
 
 This restroom locator app has a google map in which the user can navigate and select the marker from the map. Clicking on the marker will show the information of the restroom and it can be added to the Selected Restroom List on the right. There is an option of filtering out the type of restroom as well as the wheelchair accessibility ones on the bottom. The about page has a user story and goes in detail of how to use the website.
