@@ -106,25 +106,3 @@ class App extends React.Component {
 
 export default App;
 
-// / componentDidMount() {
-  //   if (localStorage.token){
-  //   fetch(`http://localhost:3000/profile`,
-  //   {headers: {
-  //     Authorization: localStorage.token
-  //   }})
-  //     .then(resp => resp.json())
-  //     .then(data => {
-  //       this.setState({
-  //         name: data.name
-  //       });
-  //     });
-  //   }
-  // }
-// render={routerProps => (
-//                   coordinates={{
-//                     lat: this.state.xcoordinate,
-//                     lng: this.state.ycoordinate
-//                   }}
-//                   {...routerProps}
-//                   handleSearchRestaurant={this.handleSearchRestrooms}
-//                   AllRestaurant={this.state.AllRestrooms}
