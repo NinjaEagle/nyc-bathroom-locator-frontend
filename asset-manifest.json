@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/nyc-restroom-locator-frontend/static/css/main.e32b2146.chunk.css",
+    "main.js": "/nyc-restroom-locator-frontend/static/js/main.f7632e31.chunk.js",
+    "main.js.map": "/nyc-restroom-locator-frontend/static/js/main.f7632e31.chunk.js.map",
+    "runtime~main.js": "/nyc-restroom-locator-frontend/static/js/runtime~main.d4c10b40.js",
+    "runtime~main.js.map": "/nyc-restroom-locator-frontend/static/js/runtime~main.d4c10b40.js.map",
+    "static/js/2.c9ecffde.chunk.js": "/nyc-restroom-locator-frontend/static/js/2.c9ecffde.chunk.js",
+    "static/js/2.c9ecffde.chunk.js.map": "/nyc-restroom-locator-frontend/static/js/2.c9ecffde.chunk.js.map",
+    "index.html": "/nyc-restroom-locator-frontend/index.html",
+    "precache-manifest.361c33da92cd288796171fbcfcd75fd3.js": "/nyc-restroom-locator-frontend/precache-manifest.361c33da92cd288796171fbcfcd75fd3.js",
+    "service-worker.js": "/nyc-restroom-locator-frontend/service-worker.js",
+    "static/css/main.e32b2146.chunk.css.map": "/nyc-restroom-locator-frontend/static/css/main.e32b2146.chunk.css.map"
+  }
+}
