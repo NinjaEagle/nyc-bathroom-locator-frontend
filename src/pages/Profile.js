@@ -6,15 +6,7 @@ class Profile extends Component {
   state = {
     myReviews: [],
   };
-  // componentDidMount() {
-  //   fetch("http://localhost:3000/favorites")
-  //     .then(res => res.json())
-  //     .then(data =>
-  //       this.setState({
-  //         myFaves: data
-  //       })
-  //     );
-  // }
+ 
 
   showFavorites = () => {
     return this.props.faveSpots.map(restroom => {

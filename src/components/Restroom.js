@@ -19,18 +19,6 @@ class Restroom extends Component {
   mapClick= () =>{
     this.props.showInfo(this.props)
   }
-  // handleMarkerOnClick = restroomInfo => {
-  //   fetch(`http://localhost:3000/restrooms/${restroomInfo.id}`)
-  //     .then(resp => resp.json())
-  //     .then(data => {
-  //       console.log(data);
-  //       // let dishes = [];
-  //       // restrooms.data.national_dishes.map(dish => dishes.push(dish));
-  //       this.setState({
-  //         restroomInfo: data
-  //       });
-  //     });
-  //   }
   
   handleClick = ( ) => {
     console.log(this.props)

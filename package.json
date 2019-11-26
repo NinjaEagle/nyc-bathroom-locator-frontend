@@ -2,10 +2,11 @@
   "name": "nyc-bathroom-finder",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://NinjaEagle.github.io/NinjaEagle.github.io",
+  "homepage": "nycrestroomfinder.surge.sh",
   "dependencies": {
     "@babel/runtime": "^7.6.0",
     "dotenv": "^8.1.0",
+    "gh-pages": "^2.1.1",
     "google-map-react": "^1.1.4",
     "google-maps-react": "^2.0.2",
     "mdbreact": "^4.19.2",
@@ -24,8 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-    
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -24,7 +24,8 @@ class App extends React.Component {
 
   addFave = spot => {
     if (!this.state.faveSpots.includes(spot)) {
-      fetch("http://localhost:3000/favorites", {
+      // fetch("http://localhost:3000/favorites", {
+        fetch("https://nyc-restrooms-locator-backend.herokuapp.com/favorites",{
         method: "POST",
         headers: {
           Accepts: "application/json",
@@ -46,7 +47,8 @@ class App extends React.Component {
 
   deleteFave = favorite => {
     console.log(favorite);
-    fetch(`http://localhost:3000/favorites/${favorite.id}`, {
+    // fetch(`http://localhost:3000/favorites/${favorite.id}`, {
+      fetch(`https://nyc-restrooms-locator-backend.herokuapp.com/${favorite.id}`,{
       method: "DELETE"
     }).then(() => {
       const updatedSpots = this.state.faveSpots.filter(aSpot => {

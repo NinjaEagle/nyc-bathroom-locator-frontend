@@ -20,7 +20,8 @@ class Home extends Component {
   };
 
   componentDidMount() {
-    fetch(`http://localhost:3000/restrooms`)
+    // fetch(`http://localhost:3000/restrooms`)
+    fetch("https://nyc-restrooms-locator-backend.herokuapp.com/restrooms")
       .then(resp => resp.json())
       .then(data => {
         this.setState({
