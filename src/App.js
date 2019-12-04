@@ -100,7 +100,7 @@ class App extends React.Component {
             )}
           />
         </Switch>
-        <div className="bottom bar">Made by fellow Glorious Pegasus: Kevin Wang</div>
+        
       </div>
     );
   }

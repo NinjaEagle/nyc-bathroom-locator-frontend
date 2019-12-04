@@ -5,15 +5,6 @@ import "../Marker.css";
 const Marker = (props: any) => {
   const { color, name, id, restroom_type} = props;
 
-    console.log(props)
-    // renderColors = () =>{
-    //   console.log(props)
-      
-
-  // const handleClick = (e) => {
-    
-  // }
-
   return (
     <div
       className="pin bounce"

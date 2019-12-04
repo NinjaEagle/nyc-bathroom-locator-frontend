@@ -13,7 +13,6 @@ class Restroom extends Component {
     })
   }
   onMouseMove = (event) => {
-    console.log(this.props)
     this.props.onHover(this.props.restroom)
   }
   mapClick= () =>{
@@ -67,13 +66,3 @@ class Restroom extends Component {
 }
 
 export default Restroom;
-
-{/* <div className="restrooms-style">
-  <h4 className="point" onMouseMove={this.onMouseMove}>
-    {this.props.restroom.name}
-  </h4>
-  <button onClick={this.handleClick}>Add this! </button>
-  <h5> Type: {this.props.restroom.restroom_type} </h5>
-  <h5> Wheelchair Accessible? {this.props.restroom.wheelchair_accesible}</h5>
-  <br></br>
-</div>; */}

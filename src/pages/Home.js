@@ -37,11 +37,10 @@ class Home extends Component {
   };
   showInfo = selectedMarker => {
     this.setState({ selectedMarker: selectedMarker });
-    console.log(this.state.selectedMarker);
+   
   };
 
   handleHover = restroom => {
-    console.log(restroom);
     this.setState({
       hovered: restroom.name
     });
@@ -100,7 +99,6 @@ class Home extends Component {
   };
 
   render() {
-    console.log(this.state.sortTerm);
     return (
       <div className="home">
         {/* <h2 className="slogan">A piece of mind from a click away</h2> */}

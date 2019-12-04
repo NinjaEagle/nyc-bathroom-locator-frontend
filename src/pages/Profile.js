@@ -64,28 +64,3 @@ class Profile extends Component {
 }
 
 export default Profile;
-
-// If login is implemented
-// componentDidMount() {
-  //   fetch(`http://localhost:3000/users/${localStorage.user_id}`, {
-  //     method: "GET",
-  //     headers: {
-  //         'Content-Type': 'application/json',
-  //         'Accepts': 'application/json',
-  //         'Authorization': localStorage.token
-  //     }
-  //   }
-  //   )
-  //     .then(resp => resp.json())
-  //     .then(data => {
-  //         console.log(localStorage.clickedUser)
-  //         console.log(data)
-  //         this.setState({   
-  //         user: data,
-  //         current_id:data.id
-  //     })}
-  //     )
-  //   if (!localStorage.token) {
-  //     this.props.history.push("/login");
-  //   }
-  // }

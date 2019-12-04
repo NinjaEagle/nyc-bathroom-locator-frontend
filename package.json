@@ -2,7 +2,7 @@
   "name": "nyc-bathroom-finder",
   "version": "0.1.0",
   "private": true,
-  "homepage": "nycrestroomfinder.surge.sh",
+  "homepage": "http://ninjaeagle.github.io/nyc-restroom-locator-frontend",
   "dependencies": {
     "@babel/runtime": "^7.6.0",
     "dotenv": "^8.1.0",
@@ -10,7 +10,7 @@
     "google-map-react": "^1.1.4",
     "google-maps-react": "^2.0.2",
     "mdbreact": "^4.19.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-google-maps": "^9.4.5",
