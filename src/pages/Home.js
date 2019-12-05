@@ -10,7 +10,6 @@ class Home extends Component {
     ycoordinate: -73.987411,
     allRestrooms: [],
     filterTerm: "",
-    hovered: null,
     sortTerm: "All",
     selectedMarker: "",
     favoriteSpot: [],
@@ -35,6 +34,7 @@ class Home extends Component {
       sortTerm: term
     });
   };
+
   showInfo = selectedMarker => {
     this.setState({ selectedMarker: selectedMarker });
    
@@ -46,57 +46,48 @@ class Home extends Component {
     });
   };
 
-  filterSpot = () => {
-    let filteredRestrooms = [...this.state.allRestrooms];
+  filterSpot(){
+    const filteredRestrooms = [...this.state.allRestrooms];
+    let filteredList = [];
     // Filtering the spots according to type
-    if (this.state.sortTerm === "All") {
-      filteredRestrooms = [...this.state.allRestrooms];
-    } else if (this.state.sortTerm === "public") {
-      filteredRestrooms = filteredRestrooms.filter(
-        restroom => restroom.restroom_type === this.state.sortTerm
-      );
-    } else if (this.state.sortTerm === "coffee shop") {
-      filteredRestrooms = filteredRestrooms.filter(
-        restroom => restroom.restroom_type === this.state.sortTerm
-      );
-    } else if (this.state.sortTerm === "hotel") {
-      filteredRestrooms = filteredRestrooms.filter(
-        restroom => restroom.restroom_type === this.state.sortTerm
-      );
-    } else if (this.state.sortTerm === "book store") {
-      filteredRestrooms = filteredRestrooms.filter(
-        restroom => restroom.restroom_type === this.state.sortTerm
-      );
-    } else if (this.state.sortTerm === "fast food") {
-      filteredRestrooms = filteredRestrooms.filter(
-        restroom => restroom.restroom_type === this.state.sortTerm
-      );
-    }  else if (this.state.sortTerm === "department store") {
-      filteredRestrooms = filteredRestrooms.filter(
-        restroom => restroom.restroom_type === this.state.sortTerm
-      );
+    if(this.state.sortTerm === "All") filteredList = filteredRestrooms;
+    else if (this.state.sortTerm === "Yes") {
+      filteredList = filteredRestrooms.filter(restroom => 
+        restroom.wheelchair_accessible === this.state.sortTerm)
     }
-      else if (this.state.sortTerm === "other") {
-      filteredRestrooms = filteredRestrooms.filter(
-        restroom => restroom.restroom_type === this.state.sortTerm
-      );
-    } else if (this.state.sortTerm === "Yes") {
-      filteredRestrooms = filteredRestrooms.filter(
-        restroom => restroom.wheelchair_accessible === this.state.sortTerm
-      );
-    };
-    return filteredRestrooms.map(restroom => {
+    else {
+      filteredList = filteredRestrooms.filter(restroom => 
+      restroom.restroom_type === this.state.sortTerm)
+     }
+    return filteredList.map(restroom => {
       return (
         <Restroom
           key={restroom.id}
           showInfo={this.showInfo}
           restroom={restroom}
-          onHover={this.handleHover}
           addFave={this.props.addFave}
         />
-      );
+      ); 
     });
   };
+
+  filteredMarkers = () => {
+    const filteredRestrooms = [...this.state.allRestrooms];
+    let filteredList = [];
+    // Filtering the spots according to type
+    if(this.state.sortTerm === "All") filteredList = filteredRestrooms;
+    else if (this.state.sortTerm === "Yes") {
+      filteredList = filteredRestrooms.filter(restroom => 
+        restroom.wheelchair_accessible === this.state.sortTerm)
+    }
+    else {
+      filteredList = filteredRestrooms.filter(restroom => 
+      restroom.restroom_type === this.state.sortTerm)
+     }
+     return filteredList;
+  }
+
+
 
   render() {
     return (
@@ -109,7 +100,7 @@ class Home extends Component {
               lat: this.state.xcoordinate,
               lng: this.state.ycoordinate
             }}
-            allRestrooms={this.state.allRestrooms}
+            allRestrooms={this.filteredMarkers()}
             selectedMarker={this.state.selectedMarker}
             onHover={this.handleHover}
             hovered={this.state.hovered}

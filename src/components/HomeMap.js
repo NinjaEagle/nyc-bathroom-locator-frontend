@@ -1,10 +1,9 @@
-import React, { Component, useState } from "react";
+import React, {  useState } from "react";
 import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from 'react-google-maps';
 import mapStyles from "./mapStyles";
 
   function Map(props) {
     const [selectedSpot,setSelectedSpot] = useState(null);
-
     return (
       <GoogleMap
         defaultZoom={13.5}
@@ -28,6 +27,7 @@ import mapStyles from "./mapStyles";
             animation={window.google.maps.Animation.DROP}
           />
         ))}
+   
 
         {selectedSpot && (
           <InfoWindow
@@ -68,6 +68,7 @@ export default function HomeMap(props){
         containerElement={<div style={{ height: `100%` }} />}
         mapElement={<div style={{ height: `100%` }} />}
         restrooms={props.allRestrooms}
+        selectedMarker={props.selectedMarker}
         addFave={props.addFave}
         hovered={props.hovered}
       />

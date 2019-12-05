@@ -1,40 +1,33 @@
 import React, { Component } from 'react';
-import {Card, Button} from 'semantic-ui-react';
-
 
 class Restroom extends Component {
   state = {
     clicked : false
   };
 
-  handleRestroomClick=()=>{
+  handleRestroomClick= () =>{
     this.setState({
       clicked:true
     })
   }
-  onMouseMove = (event) => {
-    this.props.onHover(this.props.restroom)
-  }
-  mapClick= () =>{
+ 
+  handleMouseEnter = () =>{
     this.props.showInfo(this.props)
   }
   
-  handleClick = ( ) => {
-    console.log(this.props)
+  handleClick = () => {
     this.props.addFave(this.props.restroom)
-    // alert("Yay you now can view your new saved Restroom on your profile!")
   }
     
 
   render() {
-    const image = this.state.clicked? this.props.restroom.img :null
+    // const image = this.state.clicked? this.props.restroom.img :null
   
     return (
-      <div>
-        <div className="ui card">
+        <div className="ui card" onMouseEnter={this.handleMouseEnter}>
           <div className="content">
             <div className="header">
-              <h4 className="point" onMouseMove={this.onMouseMove}>
+              <h4 className="point">
                 {this.props.restroom.name}
               </h4>
             </div>
@@ -59,8 +52,6 @@ class Restroom extends Component {
             </button>
           </div>
         </div>
-      </div>
-      
     );
   }
 }

@@ -21,6 +21,7 @@ class Filter extends Component {
     }
 
     render() {
+  
         return (
           <div className="filter-list">
             <h3>Filter By:</h3>

@@ -1,11 +1,9 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import Pages from './pages';
 import Home from "./pages/Home";
 import Profile from "./pages/Profile"
 import About from "./pages/About"
-// styling
 import './App.css';
 
 class App extends React.Component {
@@ -46,7 +44,6 @@ class App extends React.Component {
   };
 
   deleteFave = favorite => {
-    console.log(favorite);
     // fetch(`http://localhost:3000/favorites/${favorite.id}`, {
       fetch(`https://nyc-restrooms-locator-backend.herokuapp.com/${favorite.id}`,{
       method: "DELETE"
@@ -63,7 +60,6 @@ class App extends React.Component {
 
   render() {
     let faveSpots= this.state.faveSpots;
-    console.log(faveSpots)
     return (
       <div className="app">
         <NavBar />
