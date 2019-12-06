@@ -21,9 +21,9 @@ class Review extends Component {
       <div className="reviews-container">
         <div className="review-form">
           <h3>Add a review:</h3>
-          <form onSubmit={this.handleSubmit} class="ui form">
-            <div class="six wide field">
-              <div class="field">
+          <form onSubmit={this.handleSubmit} className="ui form">
+            <div className="six wide field">
+              <div className="field">
                 <label>Restroom Name</label>
                 <input
                   name="name"
@@ -34,8 +34,8 @@ class Review extends Component {
                 />
               </div>
             </div>
-            <div class="six wide field">
-              <div class="field">
+            <div className="six wide field">
+              <div className="field">
                 <label>Review</label>
                 <textarea
                   name="review"
@@ -45,25 +45,25 @@ class Review extends Component {
                 ></textarea>
               </div>
             </div>
-            <button class="ui button" type="submit">
+            <button className="ui button" type="submit">
               Submit
             </button>
           </form>
         </div>
         <div className="myreviews">
           <h3>My Reviews</h3>
-          <ul className="reviewlist">
+          <div className="reviewlist">
             {this.props.myReviews.map(review => {
               return (
-                <li>
-                  <div>
+                  <div className="review-item">
                     <h3 className="review-title">{review.name}</h3>
                     {review.review}
-                  </div>
-                </li>
+                    
+                  </div>   
+  
               );
             })}
-          </ul>
+          </div>
         </div>
       </div>
     );

@@ -107,7 +107,10 @@ class Home extends Component {
             addFave={this.props.addFave}
             userAddress={this.state.userAddress}
           />
-
+          <div className="selected-restrooms">
+            <h2 className="favorites-title">
+              My Selected Restrooms
+            </h2>
           <div className="restroom-faves">
             <RestroomFavorites
               onHover={this.handleHover}
@@ -116,6 +119,7 @@ class Home extends Component {
               myFaves={this.props.myFaves}
             />
           </div>
+        </div>
         </div>
         <div className="result-container">
           <div className="filter">
@@ -127,8 +131,8 @@ class Home extends Component {
             />
           </div>
           <div className="restroomlist">
-            <div class="ui four column grid">
-              <div class="row">{this.filterSpot()}
+            <div className="ui four column grid">
+              <div className="row">{this.filterSpot()}
               </div>
             </div>
           </div>

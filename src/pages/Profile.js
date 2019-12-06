@@ -11,8 +11,8 @@ class Profile extends Component {
   showFavorites = () => {
     return this.props.faveSpots.map(restroom => {
       return (
-        <div>
-          <li>
+        <div class="go-to-item">
+      
             <h3 className="favoritetitle">{restroom.restroom.name}</h3>
             <p>{restroom.restroom.address}</p>
             <p>Restroom Type: {restroom.restroom.restroom_type}</p>
@@ -29,7 +29,7 @@ class Profile extends Component {
             >
               Remove
             </button>
-          </li>
+  
           <br></br>
         </div>
       );
@@ -49,9 +49,9 @@ class Profile extends Component {
           <h3 className="faves-heading">My Go To List</h3>
           <div className="my-faves">
             {this.props.username ? `Welcome, ${this.props.username}!` : null}
-            <ul className="favorites">
+            <div className="favorites">
               <h3>{this.showFavorites()}</h3>
-            </ul>
+            </div>
           </div>
           <Review
             createReview={this.createReview}
