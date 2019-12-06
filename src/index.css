@@ -141,7 +141,8 @@ body {
 }
 
 .go-to-item {
-  border: 10px bold black;
+  padding: 15px 0;
+  border-bottom: 1px solid black;
 }
 .favorite-item {
   border-bottom: 1px solid black;
@@ -188,6 +189,14 @@ body {
 
 .review-item {
   border-bottom: 1px solid black;
+}
+
+.review-text{
+  padding-bottom: 10px;
+}
+
+.reviewbutton{
+  margin-bottom: 10px;
 }
 
 /* about */

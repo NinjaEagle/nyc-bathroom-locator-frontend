@@ -55,10 +55,13 @@ class Review extends Component {
           <div className="reviewlist">
             {this.props.myReviews.map(review => {
               return (
-                  <div className="review-item">
-                    <h3 className="review-title">{review.name}</h3>
-                    {review.review}
+                  <div className="review-item" key={review.id}>
+                    <h3 className="review-title">{review.restroom_name}</h3>
                     
+                    <div className="review-text">{review.text}</div>
+                    <button className="reviewbutton" onClick={event => {this.props.deleteReview(review)}}> 
+                       x
+                      </button>
                   </div>   
   
               );

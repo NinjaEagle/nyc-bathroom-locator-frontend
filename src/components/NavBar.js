@@ -7,7 +7,6 @@ export default class NavBar extends Component {
   }
 
   navAnimate = (e) => {
-    console.log(e.target)
     this.setState({
       btnClick: 'clicked'
     })
