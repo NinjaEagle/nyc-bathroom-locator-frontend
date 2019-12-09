@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import "../style/Nav.scss";
+
 export default class NavBar extends Component {
   state= {
     btnClick: 'unclicked'
@@ -34,8 +35,8 @@ export default class NavBar extends Component {
     // }
     return (
       <div className="navbar">
-        <div className="buttons">
           <h2 className="title">NYC Restroom Finder</h2>
+        <div className="buttons">
           <NavLink to="/" style={link}>
             Home
           </NavLink>
