@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 class RestroomFavorites extends React.Component {
 
   showFavorites = () => {
     return this.props.faveSpots.map(restroom => {
       return (
-        <div>
-          <li>
+        <div class="favorite-item">
             <h3 className="favoritetitle">{restroom.restroom.name}</h3>
             <p>{restroom.restroom.address}</p>
             <p>Restroom Type: {restroom.restroom.restroom_type}</p>
@@ -23,7 +22,6 @@ class RestroomFavorites extends React.Component {
             >
               Remove
             </button>
-          </li>
           <br></br>
         </div>
       );
@@ -34,8 +32,10 @@ class RestroomFavorites extends React.Component {
 
     return (
       <div className="favorites">
-        <h2 className="favorites-title">My Selected Restrooms</h2>
-        <ul className="favorites-list">{this.showFavorites()}</ul>
+        
+        <div className="favorites-list">
+          {this.showFavorites()}
+        </div>
       </div>
     );
   }

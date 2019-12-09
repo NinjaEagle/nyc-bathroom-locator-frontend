@@ -1,18 +1,14 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import "../App.css";
 // import { Link } from "react-router-dom";
 import Review from '../components/Review'
 class Profile extends Component {
-  state = {
-    myReviews: [],
-  };
  
 
   showFavorites = () => {
     return this.props.faveSpots.map(restroom => {
       return (
-        <div>
-          <li>
+        <div class="go-to-item" key={restroom.id}>
             <h3 className="favoritetitle">{restroom.restroom.name}</h3>
             <p>{restroom.restroom.address}</p>
             <p>Restroom Type: {restroom.restroom.restroom_type}</p>
@@ -29,33 +25,27 @@ class Profile extends Component {
             >
               Remove
             </button>
-          </li>
+  
           <br></br>
         </div>
       );
     });
   };
-
-  createReview = newReview => {
-    this.setState({
-      myReviews: [...this.state.myReviews, newReview]
-    });
-  };
-
+  
   render() {
     return (
       <div className="user-info">
         <div className="profile-header">
           <h3 className="faves-heading">My Go To List</h3>
           <div className="my-faves">
-            {this.props.username ? `Welcome, ${this.props.username}!` : null}
-            <ul className="favorites">
+            <div className="favorites">
               <h3>{this.showFavorites()}</h3>
-            </ul>
+            </div>
           </div>
           <Review
-            createReview={this.createReview}
-            myReviews={this.state.myReviews}
+            deleteReview={this.props.deleteReview}
+            createReview={this.props.createReview}
+            myReviews={this.props.myReviews}
           />
         </div>
       </div>

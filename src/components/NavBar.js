@@ -1,61 +1,51 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import "../style/Nav.scss";
-import { connect } from "react-redux";
-
-// import { getCurrentUser, logOut } from "../actions/userActions";
 
 export default class NavBar extends Component {
-  state ={
-     
+  state= {
+    btnClick: 'unclicked'
   }
 
-  onLogout = () => {
-    localStorage.clear()
-    this.props.history.push("/login");
-  };
+  navAnimate = (e) => {
+    this.setState({
+      btnClick: 'clicked'
+    })
+  }
 
   render() {
-    const link = {
+    let link = {
       width: "50px",
-      padding: "8px",
+      padding: "6px",
       margin: "6px 12px 6px",
-      background: "purple",
-      textDecoration: "none",
-      color: "white"
-    };
-    
- 
+      background: "antiquewhite",
+      border: "1px groove black",
+      color: "black",
+      text: "center"
+    }
+    // if(this.state.btnClick === 'clicked'){
+    //   link = {
+    //     width: "50px",
+    //     padding: "8px",
+    //     margin: "6px 12px 6px",
+    //     background: "antiquewhite",
+    //     border: "1px groove black",
+    //     color: "black"
+    //   }
+    // }
     return (
       <div className="navbar">
-        <div className="buttons">
           <h2 className="title">NYC Restroom Finder</h2>
-          {/* <NavLink to="/login" style={link}>
-              Login
-            </NavLink> */}
+        <div className="buttons">
           <NavLink to="/" style={link}>
             Home
           </NavLink>
-          
           <NavLink to="/about" style={link}>
             About
           </NavLink>
-          {/* <NavLink to="/data" style={link}>
-              Data
-            </NavLink> */}
-
-          <NavLink to="/profile" style={link}>
+          <NavLink to="/profile" style={link} >
             Profile
           </NavLink>
-          {/* <NavLink
-              className="nav-link"
-              style={{ margin: 15 }}
-              onClick={this.onLogout}
-              exact
-              to="/home"
-            >
-              Logout
-            </NavLink> */}
         </div>
       </div>
     );

@@ -53,16 +53,22 @@ body {
 .map{
   width:65%;
   height:400px;
+  margin-top: 44px;
   border:1px solid black;
 }
 
-.restroom-faves{
-  width: 30%;
-  border:1px solid black;
+.selected-restrooms {
+  width:30%;
   margin-right: 40px;
+  text-align:center;
+}
+.restroom-faves{
+ 
+  border:1px solid black;
+  
   overflow-y:scroll;
   height: 400px;
-  background-color: rgba(236, 214, 214, 0.3);
+  background-color: rgba(236, 214, 214, 0.5);
   text-align: center;
 }
 
@@ -116,8 +122,8 @@ body {
   overflow-y: scroll;
   border: 10 px solid aquamarine;
   height: 224px;
-  background-color: rgba(236, 214, 214, 0.3);
-  margin:35px;
+  background-color: rgba(236, 214, 214, 0.50);
+  margin:0 240px ;
   border-radius: 10px;
 }
 
@@ -133,6 +139,16 @@ body {
   font-family: 'Roboto',
   sans-serif;
 }
+
+.go-to-item {
+  padding: 15px 0;
+  border-bottom: 1px solid black;
+}
+.favorite-item {
+  border-bottom: 1px solid black;
+  padding: 15px 0;
+}
+
 .favoritetitle{
   color: lightcoral;
 }
@@ -168,6 +184,19 @@ body {
   background-color: rgba(236, 214, 214, 0.3);
   border-radius:10px;
   color: black;
+
+}
+
+.review-item {
+  border-bottom: 1px solid black;
+}
+
+.review-text{
+  padding-bottom: 10px;
+}
+
+.reviewbutton{
+  margin-bottom: 10px;
 }
 
 /* about */
