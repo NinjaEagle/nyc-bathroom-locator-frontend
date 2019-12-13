@@ -23,8 +23,8 @@ class App extends React.Component {
   addFave = spot => {
     let copiedSpots = this.state.faveSpots
     if (!copiedSpots.filter(e => e.restroom.id === spot.id).length > 0) {
-      fetch("http://localhost:3000/favorites", {
-        // fetch("https://nyc-restrooms-locator-backend.herokuapp.com/favorites",{
+      // fetch("http://localhost:3000/favorites", {
+        fetch("https://nyc-restrooms-locator-backend.herokuapp.com/favorites",{
         method: "POST",
         headers: {
           "Accepts": "application/json",
@@ -45,8 +45,8 @@ class App extends React.Component {
   };
 
   deleteFave = favorite => {
-    fetch(`http://localhost:3000/favorites/${favorite.id}`, {
-      // fetch(`https://nyc-restrooms-locator-backend.herokuapp.com/${favorite.id}`,{
+    // fetch(`http://localhost:3000/favorites/${favorite.id}`, {
+      fetch(`https://nyc-restrooms-locator-backend.herokuapp.com/${favorite.id}`,{
       method: "DELETE"
     }).then(() => {
       const updatedSpots = this.state.faveSpots.filter(aSpot => {
@@ -59,9 +59,13 @@ class App extends React.Component {
   };
 
   createReview = newReview =>{
+    let faveSpots = this.state.faveSpots
+    let theRestroom = faveSpots.filter(spot => spot.restroom.name === newReview.name)
+    let restroomId= theRestroom[0].restroom.id
+
     if (!this.state.myReviews.includes(newReview)) {
-      fetch("http://localhost:3000/reviews", {
-        // fetch("https://nyc-restrooms-locator-backend.herokuapp.com/reviews",{
+      // fetch("http://localhost:3000/reviews", {
+        fetch("https://nyc-restrooms-locator-backend.herokuapp.com/reviews",{
         method: "POST",
         headers: {
          "Accepts": "application/json",
@@ -69,6 +73,7 @@ class App extends React.Component {
         },
         body: JSON.stringify({
           user_id: 1,
+          restroom_id: restroomId,
           restroom_name: newReview.name,
           text: newReview.review
         })
@@ -83,8 +88,8 @@ class App extends React.Component {
   }
 
   deleteReview = review => {
-    fetch(`http://localhost:3000/reviews/${review.id}`, {
-    // fetch(`https://nyc-restrooms-locator-backend.herokuapp.com/${review.id}`,{
+    // fetch(`http://localhost:3000/reviews/${review.id}`, {
+    fetch(`https://nyc-restrooms-locator-backend.herokuapp.com/${review.id}`,{
       method: "DELETE"
     }).then(() => {
       const updatedReviews = this.state.myReviews.filter(aReview => {
@@ -100,6 +105,7 @@ class App extends React.Component {
   render() {
     let faveSpots= this.state.faveSpots;
     let myReviews = this.state.myReviews;
+    console.log(myReviews)
   
     return (
       <div className="app">
