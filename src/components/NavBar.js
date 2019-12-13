@@ -35,7 +35,7 @@ export default class NavBar extends Component {
     // }
     return (
       <div className="navbar">
-          <h2 className="title">NYC Restroom Finder</h2>
+          <h2 className="title">NYC Restroom Finder </h2>
         <div className="buttons">
           <NavLink to="/" style={link}>
             Home

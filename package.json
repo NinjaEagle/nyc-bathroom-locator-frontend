@@ -6,7 +6,6 @@
   "dependencies": {
     "@babel/runtime": "^7.6.0",
     "dotenv": "^8.1.0",
-    "gh-pages": "^2.1.1",
     "google-map-react": "^1.1.4",
     "google-maps-react": "^2.0.2",
     "mdbreact": "^4.19.2",
@@ -43,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   }
 }
