@@ -13,9 +13,20 @@ class App extends React.Component {
     ycoordinate: -73.987411,
     name: "",
     faveSpots: [],
-    myReviews:[]
+    myReviews:[],
+    allRestrooms: []
   };
 
+  componentDidMount() {
+    // fetch(`http://localhost:3000/restrooms`)
+    fetch("https://nyc-restrooms-locator-backend.herokuapp.com/restrooms")
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({
+          allRestrooms: data
+        });
+      });
+  }
   redirect = page => {
     this.setState({ page: page });
   };
@@ -59,9 +70,11 @@ class App extends React.Component {
   };
 
   createReview = newReview =>{
-    let faveSpots = this.state.faveSpots
-    let theRestroom = faveSpots.filter(spot => spot.restroom.name === newReview.name)
-    let restroomId= theRestroom[0].restroom.id
+    console.log(newReview)
+    let restroomList = this.state.allRestrooms
+    let theRestroom = restroomList.filter(spot => spot.name === newReview.name)
+    console.log(theRestroom)
+    let restroomId= theRestroom[0].id
 
     if (!this.state.myReviews.includes(newReview)) {
       // fetch("http://localhost:3000/reviews", {
@@ -105,8 +118,6 @@ class App extends React.Component {
   render() {
     let faveSpots= this.state.faveSpots;
     let myReviews = this.state.myReviews;
-    console.log(myReviews)
-  
     return (
       <div className="app">
         <NavBar />
@@ -119,6 +130,7 @@ class App extends React.Component {
                 faveSpots={faveSpots}
                 deleteFave={this.deleteFave}
                 addFave={this.addFave}
+                allRestrooms={this.state.allRestrooms}
               />
             )}
           />
