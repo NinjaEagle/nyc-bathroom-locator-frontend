@@ -33,6 +33,8 @@ Click on the About page as it has a user story and tells you how to use this app
 &&
 [Ruby on Rails](https://github.com/rails/rails) - Backend Ruby on Rails API created using ActiveRecord
 
+[![Run on Repl.it](https://repl.it/badge/github/NinjaEagle/nyc-restroom-locator-frontend)](https://repl.it/github/NinjaEagle/nyc-restroom-locator-frontend)
+
 ### License
 
 This project is licensed under the Learn.co Educational Content License. Please read `LICENSE.md` location in the directory or click on the following link (http://learn.co/content-license) for further details.	This project is licensed under the Learn.co Educational Content License. Please read `LICENSE.md` location in the directory or click on the following link (http://learn.co/content-license) for further details.
