@@ -31,7 +31,7 @@ Click on the About page as it has a user story and tells you how to use this app
 
 [ReactJS](https://github.com/facebook/react) - Frontend Framework
 &&
-[Ruby on Rails](https://github.com/rails/rails) - Backend Ruby on Rails API created using ActiveRecord
+[Ruby on Rails](https://github.com/rails/rails) - Backend Ruby on Rails API created using ActiveRecord deployed on Heroku
 
 [![Run on Repl.it](https://repl.it/badge/github/NinjaEagle/nyc-restroom-locator-frontend)](https://repl.it/github/NinjaEagle/nyc-restroom-locator-frontend)
 
