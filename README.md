@@ -39,4 +39,4 @@ Click on the About page as it has a user story and tells you how to use this app
 
 ### License
 
-This project is licensed under the Learn.co Educational Content License. Please read `LICENSE.md` location in the directory or click on the following link (http://learn.co/content-license) for further details.	This project is licensed under the Learn.co Educational Content License. Please read `LICENSE.md` location in the directory or click on the following link (http://learn.co/content-license) for further details.
+[MIT](https://choosealicense.com/licenses/mit/)
