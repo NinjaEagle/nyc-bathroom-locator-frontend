@@ -5,9 +5,11 @@ This restroom locator app has a google map in which the user can navigate and se
 
 ## Important Links
 
-Here's the link to the backend: https://github.com/NinjaEagle/nyc-restroom-finder-backend which contains the seeded data of selected restrooms and favorites.
+Backend Link: https://github.com/NinjaEagle/nyc-restroom-finder-backend which contains the seeded data of selected restrooms and favorites.
 
-And the video demo of the project: https://youtu.be/7EaZ7jpVICQ
+Video Demo: https://youtu.be/7EaZ7jpVICQ
+Live Project: https://ninjaeagle.github.io/nyc-restroom-locator-frontend/
+  Click on the Home tab on top and wait for the filtered restrooms to load.
 
 ## Setup
 
@@ -31,8 +33,10 @@ Click on the About page as it has a user story and tells you how to use this app
 
 [ReactJS](https://github.com/facebook/react) - Frontend Framework
 &&
-[Ruby on Rails](https://github.com/rails/rails) - Backend Ruby on Rails API created using ActiveRecord
+[Ruby on Rails](https://github.com/rails/rails) - Backend Ruby on Rails API created using ActiveRecord deployed on Heroku
+
+[![Run on Repl.it](https://repl.it/badge/github/NinjaEagle/nyc-restroom-locator-frontend)](https://repl.it/github/NinjaEagle/nyc-restroom-locator-frontend)
 
 ### License
 
-This project is licensed under the Learn.co Educational Content License. Please read `LICENSE.md` location in the directory or click on the following link (http://learn.co/content-license) for further details.	This project is licensed under the Learn.co Educational Content License. Please read `LICENSE.md` location in the directory or click on the following link (http://learn.co/content-license) for further details.
+[MIT](https://choosealicense.com/licenses/mit/)
