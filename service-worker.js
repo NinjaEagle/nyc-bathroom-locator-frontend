@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/nyc-restroom-locator-frontend/precache-manifest.611dc1b30497551b7612142337f65713.js"
+  "/nyc-restroom-locator-frontend/precache-manifest.b31c22f3ae58e4c242c4aefb85096deb.js"
 );
 
 self.addEventListener('message', (event) => {
