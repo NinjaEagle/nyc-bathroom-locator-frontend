@@ -13,11 +13,9 @@ class Review extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.createReview(this.state)
-    console.log(e)
   };
   
   render() {
-    console.log(this.state)
 
     return (
       <div className="reviews-container">

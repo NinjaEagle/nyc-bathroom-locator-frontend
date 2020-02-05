@@ -70,10 +70,8 @@ class App extends React.Component {
   };
 
   createReview = newReview =>{
-    console.log(newReview)
     let restroomList = this.state.allRestrooms
     let theRestroom = restroomList.filter(spot => spot.name === newReview.name)
-    console.log(theRestroom)
     let restroomId= theRestroom[0].id
 
     if (!this.state.myReviews.includes(newReview)) {

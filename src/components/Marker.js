@@ -22,5 +22,3 @@ const Marker = (props: any) => {
 export default Marker;
 
 
-// localStorage.restroom.id = restroom.id
-        // history.push('/home')

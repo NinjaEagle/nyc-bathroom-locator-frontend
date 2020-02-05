@@ -187,6 +187,10 @@ body {
 
 }
 
+.ui.submit.button {
+  margin-top: 30px;
+}
+
 .review-item {
   border-bottom: 1px solid black;
 }

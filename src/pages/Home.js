@@ -19,14 +19,38 @@ class Home extends Component {
   };
 
   componentDidMount() {
-    // fetch(`http://localhost:3000/restrooms`)
+    this.getGeoLocation();
+    this.getRestrooms();
+  }
+
+  getRestrooms = () => {
+        // fetch(`http://localhost:3000/restrooms`)
     fetch("https://nyc-restrooms-locator-backend.herokuapp.com/restrooms")
-      .then(resp => resp.json())
-      .then(data => {
-        this.setState({
-          allRestrooms: data
-        });
+    .then(resp => resp.json())
+    .then(data => {
+      this.setState({
+        allRestrooms: data
       });
+    });
+  }
+
+
+  getGeoLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          localStorage.xcoo=position.coords.latitude
+          localStorage.ycoo=position.coords.longitude
+          this.setState((prevState) => ({
+            xcoordinate:position.coords.latitude,
+            ycoordinate:position.coords.longitude
+          }),this.getRestrooms
+          )
+        }
+      )
+    } else {
+      // alert("Cannot get your location from your browser. Using default coordinates.")
+    }
   }
 
   setSortTerm = term => {
@@ -37,7 +61,6 @@ class Home extends Component {
 
   showInfo = selectedMarker => {
     this.setState({ selectedMarker: selectedMarker });
-   
   };
 
   handleHover = restroom => {

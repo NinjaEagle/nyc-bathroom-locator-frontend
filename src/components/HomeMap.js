@@ -4,10 +4,13 @@ import mapStyles from "./mapStyles";
 
   function Map(props) {
     const [selectedSpot,setSelectedSpot] = useState(null);
+
+    console.log(selectedSpot)
+
     return (
       <GoogleMap
         defaultZoom={13.5}
-        defaultCenter={{ lat: 40.700771, lng: -73.987411 }}
+        defaultCenter={{ lat: props.coordinates.lat, lng: props.coordinates.lng }}
         defaultOptions={{ styles: mapStyles}}
       >
         {props.restrooms.map(restroom => (
@@ -27,7 +30,6 @@ import mapStyles from "./mapStyles";
             animation={window.google.maps.Animation.DROP}
           />
         ))}
-   
 
         {selectedSpot && (
           <InfoWindow
@@ -71,6 +73,7 @@ export default function HomeMap(props){
         selectedMarker={props.selectedMarker}
         addFave={props.addFave}
         hovered={props.hovered}
+        coordinates={props.coordinates}
       />
     </div>
   );
