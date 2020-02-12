@@ -5,7 +5,7 @@ This restroom locator app has a google map in which the user can navigate and se
 
 ## Important Links
 
-Backend Link: https://github.com/NinjaEagle/nyc-restroom-finder-backend which contains the seeded data of selected restrooms and favorites.
+Backend Link: https://github.com/NinjaEagle/nyc-restroom-finder-backend which contains the seeded data of selected restrooms.
 
 Video Demo: https://youtu.be/7EaZ7jpVICQ
 Live Project: https://ninjaeagle.github.io/nyc-restroom-locator-frontend/
