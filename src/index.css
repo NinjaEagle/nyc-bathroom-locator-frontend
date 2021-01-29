@@ -157,6 +157,7 @@ body {
   color:black;
 }
 .ui.form{
+  margin: 0 auto;
   padding: 25px 0px;
   width: 492px;
   height:259px;

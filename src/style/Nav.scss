@@ -2,9 +2,10 @@
 .navbar{
     width: 100%;
     background-color: rgb(241, 132, 95);
-    height:6vh;
+    height:60px;
     display:flex;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .title{
     font-size: 50px;
@@ -16,4 +17,8 @@
 .buttons{
     display: flex;
     align-items: center;
+}
+.tabContainerBox {
+	border-radius: 0%;
+	top: 0;
 }

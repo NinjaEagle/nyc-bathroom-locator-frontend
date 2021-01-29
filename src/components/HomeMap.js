@@ -1,21 +1,16 @@
-import React, { useState } from 'react'
-import {
-	GoogleMap,
-	withScriptjs,
-	withGoogleMap,
-	Marker,
-	InfoWindow,
-} from 'react-google-maps'
-import mapStyles from './mapStyles'
+import React, { useState } from "react";
+import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
+import mapStyles from "./mapStyles";
 
 function Map(props) {
-	const [selectedSpot, setSelectedSpot] = useState(null)
+	const [selectedSpot, setSelectedSpot] = useState(null);
 	return (
 		<GoogleMap
 			defaultZoom={13.5}
 			defaultCenter={{ lat: props.coordinates.lat, lng: props.coordinates.lng }}
-			defaultOptions={{ styles: mapStyles }}>
-			{' '}
+			defaultOptions={{ styles: mapStyles }}
+		>
+			{" "}
 			{props.restrooms.map((restroom) => (
 				<Marker
 					key={restroom.id}
@@ -24,10 +19,10 @@ function Map(props) {
 						lng: restroom.longitude,
 					}}
 					onClick={() => {
-						setSelectedSpot(restroom)
+						setSelectedSpot(restroom);
 					}}
 					icon={{
-						url: '/unisex.svg',
+						url: "/unisex.svg",
 						scaledSize: new window.google.maps.Size(25, 25),
 					}}
 					animation={window.google.maps.Animation.DROP}
@@ -41,34 +36,37 @@ function Map(props) {
 						lng: parseFloat(selectedSpot.longitude),
 					}}
 					onCloseClick={() => {
-						setSelectedSpot(null)
-					}}>
+						setSelectedSpot(null);
+					}}
+				>
 					<div>
-						<h2> {selectedSpot.name} </h2> <p> {selectedSpot.address} </p>{' '}
-						<p> Type: {selectedSpot.restroom_type} </p>{' '}
-						<p> Wheelchair Accessible: {selectedSpot.wheelchair_accessible} </p>{' '}
+						<h2> {selectedSpot.name} </h2> <p> {selectedSpot.address} </p>{" "}
+						<p> Type: {selectedSpot.restroom_type} </p>{" "}
+						<p> Wheelchair Accessible: {selectedSpot.wheelchair_accessible} </p>{" "}
 						<p>
-							Hours: {selectedSpot.start_time} - {selectedSpot.end_time}{' '}
-						</p>{' '}
+							Hours: {selectedSpot.start_time} - {selectedSpot.end_time}{" "}
+						</p>{" "}
 						<p>
-							Save it to your selected list ?{' '}
+							Save it to your selected list ?{" "}
 							<button
 								onClick={() => {
-									props.addFave(selectedSpot)
-								}}>
+									props.addFave(selectedSpot);
+								}}
+							>
 								Yes!
-							</button>{' '}
-						</p>{' '}
-					</div>{' '}
+							</button>{" "}
+						</p>{" "}
+					</div>{" "}
 				</InfoWindow>
-			)}{' '}
+			)}{" "}
 		</GoogleMap>
-	)
+	);
 }
 
-const WrappedMap = withScriptjs(withGoogleMap(Map))
+const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export default function HomeMap(props) {
+	console.log(process.env.REACT_APP_GOOGLE_API_KEY);
 	return (
 		<div className='map'>
 			<WrappedMap
@@ -81,7 +79,7 @@ export default function HomeMap(props) {
 				addFave={props.addFave}
 				hovered={props.hovered}
 				coordinates={props.coordinates}
-			/>{' '}
+			/>{" "}
 		</div>
-	)
+	);
 }
