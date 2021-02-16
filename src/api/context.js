@@ -9,7 +9,7 @@ class MyProvider extends React.Component {
 		user_id: sessionStorage.getItem("user_id"),
 		posts: sessionStorage.getItem("posts"),
 		comments: sessionStorage.getItem("comments"),
-		currentPost: sessionStorage.getItem("currentPost"),
+		currentRestRoom: sessionStorage.getItem("currentRestRoom"),
 		isSignedIn: sessionStorage.getItem("isSignedIn"),
 		text: sessionStorage.getItem("isSignedIn"),
 
@@ -22,12 +22,12 @@ class MyProvider extends React.Component {
 		updateIsSignedIn: (isSignedIn) => this.updateIsSignedIn(isSignedIn),
 		newReview: (review) => this.newReview(review),
 
-		updateCurrentPost: (currentPost) => this.updateCurrentPost(currentPost),
+		updatecurrentRestRoom: (currentRestRoom) => this.updatecurrentRestRoom(currentRestRoom),
 	};
 
-	updateCurrentPost(cPost) {
-		sessionStorage.setItem("currentPost", JSON.stringify(cPost));
-		this.setState({ currentPost: cPost });
+	updatecurrentRestRoom(cPost) {
+		sessionStorage.setItem("currentRestRoom", JSON.stringify(cPost));
+		this.setState({ currentRestRoom: cPost });
 	}
 
 	initRestrooms(initRestrooms) {

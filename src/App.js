@@ -126,7 +126,7 @@ class App extends React.Component {
 									<Route
 										exact
 										path='/'
-										render={(routerProps) => (
+										render={(props) => (
 											<Home
 												faveSpots={faveSpots}
 												deleteFave={this.deleteFave}
@@ -135,13 +135,13 @@ class App extends React.Component {
 											/>
 										)}
 									/>
-									<Route exact path='/about' render={(routerProps) => <About />} />
+									<Route exact path='/about' render={(props) => <About />} />
 									<Route
 										exact
 										path='/profile'
-										render={(routerProps) => (
+										render={(props) => (
 											<Profile
-												{...routerProps}
+												{...props}
 												faveSpots={faveSpots}
 												addFave={this.addFave}
 												deleteFave={this.deleteFave}

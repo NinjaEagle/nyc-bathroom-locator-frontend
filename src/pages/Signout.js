@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button, Modal } from "react-bootstrap";
+import { Card, Button, Modal } from "semantic-ui-react";
 import { Redirect } from "react-router-dom";
 import "../style/Signout.scss";
 
@@ -32,46 +32,40 @@ export default class Signout extends React.Component {
 				<div className='signout'>
 					<Card>
 						<Card.Header>
-							Are you sure you want to Sign out {this.props.context.userName}?
+							Are you sure you want to sign out {this.props.context.userName}?
 						</Card.Header>
-						<Card.Body>
-							<Card.Text></Card.Text>
-							<Button onClick={this.handleSignOut} variant='primary'>
+						<Card.Content>
+							<Button onClick={this.handleSignOut} positive icon='checkmark'>
 								Yes
 							</Button>
-							&nbsp;
 							<Button
 								onClick={() => {
 									this.setState({ cancel: true });
 								}}
-								variant='danger'
+								color='red'
 							>
 								No
 							</Button>
-						</Card.Body>
+						</Card.Content>
 					</Card>
 
 					<Modal
-						show={this.state.showModal}
-						backdrop='static'
-						onHide={() => this.setState({ showModal: false })}
+						class='modal'
+						open={this.state.showModal}
+						onClose={() => this.setState({ showModal: false })}
 					>
-						<Modal.Header closeButton>
-							<Modal.Title>Sign out successful!</Modal.Title>
-						</Modal.Header>
-						<Modal.Body>
-							You will be redirected to the Sign out Page {this.state.userName}
-						</Modal.Body>
-						<Modal.Footer>
-							<Button
-								variant='primary'
-								onClick={() => {
-									this.setState({ redirect: true });
-								}}
-							>
-								Continue
-							</Button>
-						</Modal.Footer>
+						<Modal.Header>Sign out successful!</Modal.Header>
+						<Modal.Content>
+							You will be redirected to the Sign out page {this.state.userName}
+						</Modal.Content>
+
+						<Button
+							onClick={() => {
+								this.setState({ redirect: true });
+							}}
+						>
+							Continue
+						</Button>
 					</Modal>
 				</div>
 			</React.Fragment>

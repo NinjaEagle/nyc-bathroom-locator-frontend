@@ -10,24 +10,24 @@ function Map(props) {
 			defaultCenter={{ lat: props.coordinates.lat, lng: props.coordinates.lng }}
 			defaultOptions={{ styles: mapStyles }}
 		>
-			{" "}
-			{props.restrooms.map((restroom) => (
-				<Marker
-					key={restroom.id}
-					position={{
-						lat: restroom.latitude,
-						lng: restroom.longitude,
-					}}
-					onClick={() => {
-						setSelectedSpot(restroom);
-					}}
-					icon={{
-						url: "/unisex.svg",
-						scaledSize: new window.google.maps.Size(25, 25),
-					}}
-					animation={window.google.maps.Animation.DROP}
-				/>
-			))}
+			<div>
+				{props.restrooms.map((restroom) => (
+					<Marker
+						key={restroom.id}
+						position={{
+							lat: restroom.latitude,
+							lng: restroom.longitude,
+						}}
+						onClick={() => setSelectedSpot(restroom)}
+						icon={{
+							url: "/unisex.svg",
+							scaledSize: new window.google.maps.Size(25, 25),
+						}}
+						animation={window.google.maps.Animation.DROP}
+					/>
+				))}
+			</div>
+			console.log('selectedlocation', selectedSpot)
 			{selectedSpot && (
 				<InfoWindow
 					visible={true}
@@ -66,7 +66,6 @@ function Map(props) {
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export default function HomeMap(props) {
-	console.log(process.env.REACT_APP_GOOGLE_API_KEY);
 	return (
 		<div className='map'>
 			<WrappedMap

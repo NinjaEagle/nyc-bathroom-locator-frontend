@@ -1,7 +1,8 @@
 import React from "react";
 import { Redirect } from "react-router";
-import { Button, Card, FormGroup, FormControl, FormLabel, Modal, Nav } from "react-bootstrap";
+import { Button, Card, Form, Modal } from "semantic-ui-react";
 import "../style/Login.scss";
+import { Link } from "react-router-dom";
 // import backend from "../api/backend";
 
 export default class LogIn extends React.Component {
@@ -32,13 +33,14 @@ export default class LogIn extends React.Component {
 		// 		password: this.state.password,
 		// 	}),
 		// });
-
-		// if (this._isMounted) {
-		// 	this.props.context.updateUser_id(response.data.user_id);
-		// 	this.props.context.updateUsername(this.state.userName);
-		// 	this.props.context.updateIsSignedIn("true");
-		// 	this.setState({ showModal: true });
-		// }
+		// let userId = response.data.user_id
+		let userId = 1;
+		if (this._isMounted) {
+			this.props.context.updateUser_id(userId);
+			this.props.context.updateUsername(this.state.userName);
+			this.props.context.updateIsSignedIn("true");
+			this.setState({ showModal: true });
+		}
 	};
 
 	handleRedirect = (event) => {
@@ -56,66 +58,62 @@ export default class LogIn extends React.Component {
 
 		return (
 			<div className='LogIn'>
-				{/* <Card style={{ width: "30rem", height: "32rem" }} bg='dark' text='light'>
-					<Card.Body>
-						<Card.Title>Log in</Card.Title>
-						<form onSubmit={this.validateLogin}>
-							<FormGroup controlId='userName'>
-								<FormLabel style={{ color: "white" }}>Username</FormLabel>
-								<FormControl
+				<Card
+					style={{ width: "30rem", height: "32rem", backgroundColor: "cadetblue" }}
+					bg='dark'
+					text='light'
+				>
+					<Card.Content>
+						<Card.Header>Log in</Card.Header>
+						<Form onSubmit={this.validateLogin}>
+							<Form.Field controlId='userName'>
+								<label style={{ color: "white" }}>Username</label>
+								<input
 									autoFocus
-									type='userName'
 									value={this.state.userName}
 									onChange={(e) => this.setState({ userName: e.target.value })}
 									placeholder='Enter your username'
 								/>
-							</FormGroup>
-							<FormGroup controlId='password'>
-								<FormLabel style={{ color: "white" }}>Password</FormLabel>
-								<FormControl
+							</Form.Field>
+							<Form.Field controlId='password'>
+								<label style={{ color: "white" }}>Password</label>
+								<input
 									value={this.state.password}
 									onChange={(e) => this.setState({ password: e.target.value })}
 									placeholder='Enter password'
-									type='password'
 								/>
-							</FormGroup>
+							</Form.Field>
 							<div style={{ paddingTop: "15px" }}>
 								<Button block size='large' type='submit' variant='danger'>
 									Log In
 								</Button>
 							</div>
-						</form>
-						<Card.Footer>
-							<div className='text-muted'>Don't have an account?</div>
-						</Card.Footer>
-						<Button onClick={this.signUp} size='small' type='submit' variant='danger'>
-							<Nav.Item>
-								<Nav.Link href='/SignUp'>SignUp</Nav.Link>
-							</Nav.Item>
-						</Button>
-					</Card.Body>
-				</Card> */}
+						</Form>
 
-				{/* <Modal
-					show={this.state.showModal}
-					backdrop='static'
-					onHide={() => this.setState({ showModal: false })}
-				>
-					<Modal.Header closeButton>
-						<Modal.Title>Logged In Sucessfully</Modal.Title>
-					</Modal.Header>
-					<Modal.Body>You are logged in as {this.props.context.userName}</Modal.Body>
-					<Modal.Footer>
+						<div className='text-muted'>Don't have an account?</div>
+						<Button onClick={this.signUp} size='small' type='submit' variant='danger'>
+							{/* <Nav.Item>
+								<Nav.Link href='/Signup'>SignUp</Nav.Link>
+							</Nav.Item> */}
+							<Link to='/Signup'>Sign Up</Link>
+						</Button>
+					</Card.Content>
+				</Card>
+
+				<Modal open={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
+					<Modal.Header>Logged In Sucessfully</Modal.Header>
+					<Modal.Content>You are logged in as {this.props.context.userName}</Modal.Content>
+					<Modal.Actions>
 						<Button
-							variant='primary'
+							color='black'
 							onClick={() => {
 								this.setState({ redirect: true });
 							}}
 						>
 							Continue
 						</Button>
-					</Modal.Footer>
-				</Modal> */}
+					</Modal.Actions>
+				</Modal>
 			</div>
 		);
 	}
