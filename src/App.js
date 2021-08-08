@@ -18,6 +18,7 @@ class App extends React.Component {
 		faveSpots: [],
 		myReviews: [],
 		allRestrooms: [],
+		page: "",
 	};
 
 	componentDidMount() {
